@@ -1,7 +1,11 @@
 package hwk1.GUI;
 
+import hwk1.OutPutJson;
+import org.json.JSONObject;
+
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
 public class Register {
     private JTextField registerName;
@@ -34,6 +38,15 @@ public class Register {
             }
             //当用户名密码都正确填写时进入登录界面
             if (!registerUserName.trim().equals("") && registerUserPwd1.equals(registerUserPwd2)) {
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("userName",registerUserName);
+                jsonObject.put("userPwd",registerUserPwd1);
+                File file = new File("config.json");
+                try {
+                    OutPutJson.toFile(jsonObject,file);
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
                 //关闭注册窗口
                 frame.dispose();
                 Login login = new Login();
