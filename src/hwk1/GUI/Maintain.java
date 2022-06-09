@@ -19,6 +19,7 @@ public class Maintain {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Maintain");
         frame.setContentPane(new Maintain().root);
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

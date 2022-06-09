@@ -11,14 +11,13 @@ public class Menu {
     private JButton exitSystemButton;
 
     public Menu() {
-        exitSystemButton.addActionListener(e -> {
-            System.exit(0);
-        });
+        exitSystemButton.addActionListener(e -> System.exit(0));
     }
 
     public void menuRun() {
         frame = new JFrame("Menu");
         frame.setContentPane(this.root);
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
