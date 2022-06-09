@@ -1,3 +1,3 @@
 # VendingMachine
 ### 课程作业
-饮料售卖机
+饮料售卖机 GUI界面
