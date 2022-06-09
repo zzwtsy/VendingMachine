@@ -1,6 +1,7 @@
 package hwk1.GUI;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Login {
     private JTextField nameField;
@@ -8,6 +9,7 @@ public class Login {
     private JButton loginButton;
     private JFrame frame;
     private JPanel root;
+    private JButton registerButton;
     private String userName;
     private String userPwd;
 
@@ -31,6 +33,12 @@ public class Login {
                 menu.menuRun();
             }
         });
+        //打开注册界面
+        registerButton.addActionListener(e -> {
+            frame.dispose();
+            Register register = new Register();
+            register.registerRun();
+        });
     }
 
     public void loginRun(String userName, String userPwd) {
@@ -42,5 +50,19 @@ public class Login {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        // 获得窗口宽
+        int windowWidth = frame.getWidth();
+        // 获得窗口高
+        int windowHeight = frame.getHeight();
+        // 定义工具包
+        Toolkit kit = Toolkit.getDefaultToolkit();
+        // 获取屏幕的尺寸
+        Dimension screenSize = kit.getScreenSize();
+        // 获取屏幕的宽
+        int screenWidth = screenSize.width;
+        // 获取屏幕的高
+        int screenHeight = screenSize.height;
+        // 设置窗口居中显示
+        frame.setLocation(screenWidth / 2 - windowWidth / 2, screenHeight / 2 - windowHeight / 2);
     }
 }
