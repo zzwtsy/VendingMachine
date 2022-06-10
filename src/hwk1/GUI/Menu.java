@@ -29,15 +29,6 @@ public class Menu {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        //点击X时返回上一级窗口
-        frame.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-//                onCancel();
-                frame.dispose();
-                Menu menu = new Menu();
-                menu.menuRun();
-            }
-        });
         // 获得窗口宽
         int windowWidth = frame.getWidth();
         // 获得窗口高
