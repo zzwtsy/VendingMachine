@@ -4,13 +4,44 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Initialize {
+    private JFrame frame;
     private JPanel root;
-    private JTextField textField1;
+    private JTextField initTextField;
     private JButton saveButton;
+    private JButton goBackButton;
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Initialize");
-        frame.setContentPane(new Initialize().root);
+    public Initialize() {
+        saveButton.addActionListener(e -> {
+            String init = initTextField.getText();
+            if (!init.trim().equals("")) {
+                String[] data = init.split("\\|");
+                //商品名称，价格
+                String[][] namePrice = new String[data.length][2];
+                //商品数量
+                int[] number = new int[data.length];
+                for (int i = 0; i < data.length; i++) {
+                    String[] detail = data[i].split(":");
+                    //商品名称
+                    namePrice[i][0] = detail[0];
+                    //商品价格
+                    namePrice[i][1] = detail[1];
+                    //商品数量
+                    number[i] = Integer.parseInt(detail[2]);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "保存内容不能为空");
+            }
+        });
+        goBackButton.addActionListener(e -> {
+            frame.dispose();
+            Menu menu = new Menu();
+            menu.menuRun();
+        });
+    }
+
+    public void initializeRun() {
+        frame = new JFrame("Initialize");
+        frame.setContentPane(this.root);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
@@ -28,5 +59,10 @@ public class Initialize {
         int screenHeight = screenSize.height;
         // 设置窗口居中显示
         frame.setLocation(screenWidth / 2 - windowWidth / 2, screenHeight / 2 - windowHeight / 2);
+    }
+
+    public static void main(String[] args) {
+        Initialize initialize = new Initialize();
+        initialize.initializeRun();
     }
 }
