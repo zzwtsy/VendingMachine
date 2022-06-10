@@ -59,6 +59,7 @@ public class Initialize {
                 ex.printStackTrace();
             }
             JOptionPane.showMessageDialog(null, "保存成功");
+            initTextField.setText("");
         } else {
             JOptionPane.showMessageDialog(null, "保存内容不能为空");
         }
