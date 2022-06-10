@@ -2,8 +2,6 @@ package hwk1.GUI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Menu {
     private JFrame frame;
@@ -15,13 +13,10 @@ public class Menu {
 
     public Menu() {
         exitSystemButton.addActionListener(e -> System.exit(0));
-        initSystemButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                Initialize initialize = new Initialize();
-                initialize.initializeRun();
-            }
+        initSystemButton.addActionListener(e -> {
+            frame.dispose();
+            Initialize initialize = new Initialize();
+            initialize.initializeRun();
         });
     }
 
