@@ -2,6 +2,8 @@ package hwk1.GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Menu {
     private JFrame frame;
@@ -27,6 +29,15 @@ public class Menu {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        //点击X时返回上一级窗口
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+//                onCancel();
+                frame.dispose();
+                Menu menu = new Menu();
+                menu.menuRun();
+            }
+        });
         // 获得窗口宽
         int windowWidth = frame.getWidth();
         // 获得窗口高
