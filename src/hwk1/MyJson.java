@@ -38,7 +38,7 @@ public class MyJson {
             }
             return tempData.toString();
         } catch (IOException e) {
-            return "";
+            return "error";
         } finally {
             try {
                 assert fileReader != null;
