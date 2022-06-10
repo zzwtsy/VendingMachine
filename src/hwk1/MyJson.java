@@ -42,7 +42,7 @@ public class MyJson {
             } else if (jsonstr.startsWith("[")) {
                 return new JSONArray(jsonstr);
             } else {
-                throw new Exception("JSON必以 { 或 [ 开头");
+                throw new Exception("JSON必须以 { 或 [ 开头");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
