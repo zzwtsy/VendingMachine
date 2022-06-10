@@ -9,7 +9,6 @@ public class Login {
     private JButton loginButton;
     private JFrame frame;
     private JPanel root;
-    private JButton registerButton;
     private String userName;
     private String userPwd;
 
@@ -27,17 +26,11 @@ public class Login {
                 JOptionPane.showMessageDialog(null, "用户密码不能为空");
             } else if (!userPwd.equals(loginUserPwd)) {
                 JOptionPane.showMessageDialog(null, "用户密码错误");
-            } else{
+            } else {
                 frame.dispose();
                 Menu menu = new Menu();
                 menu.menuRun();
             }
-        });
-        //打开注册界面
-        registerButton.addActionListener(e -> {
-            frame.dispose();
-            Register register = new Register();
-            register.registerRun();
         });
     }
 
