@@ -1,7 +1,12 @@
 package hwk1.GUI;
 
+import hwk1.MyJson;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
 public class Initialize {
     private JFrame frame;
@@ -12,31 +17,50 @@ public class Initialize {
 
     public Initialize() {
         saveButton.addActionListener(e -> {
-            String init = initTextField.getText();
-            if (!init.trim().equals("")) {
-                String[] data = init.split("\\|");
-                //商品名称，价格
-                String[][] namePrice = new String[data.length][2];
-                //商品数量
-                int[] number = new int[data.length];
-                for (int i = 0; i < data.length; i++) {
-                    String[] detail = data[i].split(":");
-                    //商品名称
-                    namePrice[i][0] = detail[0];
-                    //商品价格
-                    namePrice[i][1] = detail[1];
-                    //商品数量
-                    number[i] = Integer.parseInt(detail[2]);
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "保存内容不能为空");
-            }
+            initData();
+            JOptionPane.showMessageDialog(null, "保存成功");
         });
         goBackButton.addActionListener(e -> {
             frame.dispose();
             Menu menu = new Menu();
             menu.menuRun();
         });
+    }
+
+    public static void main(String[] args) {
+        Initialize initialize = new Initialize();
+        initialize.initializeRun();
+    }
+
+    /**
+     * 初始化数据
+     */
+    public void initData() {
+        JSONArray jsonArray = new JSONArray();
+        String init = initTextField.getText();
+        String[] data = init.split("\\|");
+        if (!init.trim().equals("")) {
+            for (String datum : data) {
+                JSONObject jsonObject = null;
+                jsonObject = new JSONObject();
+                String[] detail = null;
+                detail = datum.split(":");
+                jsonObject.put(detail[0] + "的名称", detail[0]);
+                jsonObject.put(detail[0] + "的价格", detail[1]);
+                jsonObject.put(detail[0] + "的数量", detail[2]);
+                jsonArray.put(jsonObject);
+            }
+            File jsonFile = new File("product.json");
+            try {
+                MyJson.writeJson(jsonArray, jsonFile);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "保存失败");
+                ex.printStackTrace();
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "保存内容不能为空");
+        }
     }
 
     public void initializeRun() {
@@ -59,10 +83,5 @@ public class Initialize {
         int screenHeight = screenSize.height;
         // 设置窗口居中显示
         frame.setLocation(screenWidth / 2 - windowWidth / 2, screenHeight / 2 - windowHeight / 2);
-    }
-
-    public static void main(String[] args) {
-        Initialize initialize = new Initialize();
-        initialize.initializeRun();
     }
 }
