@@ -7,6 +7,8 @@ import org.json.JSONObject;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Map;
 
 public class Register {
@@ -54,7 +56,7 @@ public class Register {
         });
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Register register = new Register();
         File jsonFile = new File("config.json");
         //检查config.json文件是否存在
@@ -74,7 +76,8 @@ public class Register {
      * 判断管理员是否注册
      */
     public boolean unregistered() {
-        String contentJson = MyJson.readJson("config.json");
+        File file = new File("config.json");
+        String contentJson = (String) MyJson.readJson(file);
         Gson gson = new Gson();
         Map<String, String> mapJson = gson.fromJson(contentJson, Map.class);
         userNameJson = mapJson.get("userName");

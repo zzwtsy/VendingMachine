@@ -1,5 +1,6 @@
 package hwk1;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
@@ -10,44 +11,41 @@ public class MyJson {
         String jsonstr;
         if (json instanceof JSONObject) {
             jsonstr = ((JSONObject) json).toString(2);
+        } else if (json instanceof JSONArray) {
+            jsonstr = ((JSONArray) json).toString(2);
         } else {
             throw new Exception("必须是org.json.JSONObject或org.json.JSONArray");
         }
         //存入文件
-        OutputStream outputStream = new FileOutputStream(file);
+        OutputStream outputStream = new FileOutputStream(file, true);
         byte[] data = jsonstr.getBytes(StandardCharsets.UTF_8);
         outputStream.write(data);
         outputStream.close();
     }
 
-    public static String readJson(String jsonPath) {
-        File jsonFile = new File(jsonPath);
-        FileReader fileReader = null;
-        BufferedReader reader = null;
-        try {
-            fileReader = new FileReader(jsonFile);
-            reader = new BufferedReader(fileReader);
-            StringBuilder tempData = new StringBuilder();
-            while (true) {
-                int ch = reader.read();
-                if (ch != -1) {
-                    tempData.append((char) ch);
-                } else {
+    public static Object readJson(File file) {
+        try (InputStream inputStream = new FileInputStream(file)) {
+            int fileSize = (int) file.length();
+            byte[] data = new byte[fileSize];
+            int n = inputStream.read(data);
+            int offset = 0;
+            String jsonstr = new String(data, offset, n - offset);
+            char firstChar;
+            for (int i = 0; i < jsonstr.length(); i++) {
+                firstChar = jsonstr.charAt(i);
+                if (firstChar != ' ' && firstChar != '\t' && firstChar != '\n' && firstChar != '\r') {
                     break;
                 }
             }
-            return tempData.toString();
-        } catch (IOException e) {
-            return "error";
-        } finally {
-            try {
-                assert fileReader != null;
-                fileReader.close();
-                assert reader != null;
-                reader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (jsonstr.startsWith("{")) {
+                return new JSONObject(jsonstr);
+            } else if (jsonstr.startsWith("[")) {
+                return new JSONArray(jsonstr);
+            } else {
+                throw new Exception("JSON必以 { 或 [ 开头");
             }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }
