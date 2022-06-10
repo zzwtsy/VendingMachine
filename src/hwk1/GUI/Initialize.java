@@ -41,8 +41,12 @@ public class Initialize {
         String[] data = init.split("\\|");
         if (!init.trim().equals("")) {
             for (String datum : data) {
+                //jsonObject = null 不可删除
+                @SuppressWarnings("all")
                 JSONObject jsonObject = null;
                 jsonObject = new JSONObject();
+                //detail = null 不可删除
+                @SuppressWarnings("all")
                 String[] detail = null;
                 detail = datum.split(":");
                 jsonObject.put(detail[0] + "的名称", detail[0]);
