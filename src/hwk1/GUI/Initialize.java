@@ -6,6 +6,8 @@ import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 
 public class Initialize {
@@ -16,10 +18,7 @@ public class Initialize {
     private JButton goBackButton;
 
     public Initialize() {
-        saveButton.addActionListener(e -> {
-            initData();
-            JOptionPane.showMessageDialog(null, "保存成功");
-        });
+        saveButton.addActionListener(e -> initData());
         goBackButton.addActionListener(e -> {
             frame.dispose();
             Menu menu = new Menu();
@@ -42,12 +41,10 @@ public class Initialize {
         if (!init.trim().equals("")) {
             for (String datum : data) {
                 //jsonObject = null 不可删除
-                @SuppressWarnings("all")
-                JSONObject jsonObject = null;
+                @SuppressWarnings("all") JSONObject jsonObject = null;
                 jsonObject = new JSONObject();
                 //detail = null 不可删除
-                @SuppressWarnings("all")
-                String[] detail = null;
+                @SuppressWarnings("all") String[] detail = null;
                 detail = datum.split(":");
                 jsonObject.put(detail[0] + "的名称", detail[0]);
                 jsonObject.put(detail[0] + "的价格", detail[1]);
@@ -61,7 +58,7 @@ public class Initialize {
                 JOptionPane.showMessageDialog(null, "保存失败");
                 ex.printStackTrace();
             }
-
+            JOptionPane.showMessageDialog(null, "保存成功");
         } else {
             JOptionPane.showMessageDialog(null, "保存内容不能为空");
         }
@@ -70,9 +67,17 @@ public class Initialize {
     public void initializeRun() {
         frame = new JFrame("Initialize");
         frame.setContentPane(this.root);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        //点击X时返回上一级窗口
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+//                onCancel();
+                frame.dispose();
+                Menu menu = new Menu();
+                menu.menuRun();
+            }
+        });
         // 获得窗口宽
         int windowWidth = frame.getWidth();
         // 获得窗口高
