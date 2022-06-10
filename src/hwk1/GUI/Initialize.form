@@ -39,7 +39,7 @@
         </constraints>
         <properties>
           <font size="14"/>
-          <text value="示例：矿泉水|2|100"/>
+          <text value="示例：矿泉水:2:100|可乐:3:200"/>
         </properties>
       </component>
       <component id="ec3fd" class="javax.swing.JTextField" binding="initTextField">
