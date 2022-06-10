@@ -1,6 +1,6 @@
 package hwk1.GUI;
 
-import hwk1.OutPutJson;
+import hwk1.MyJson;
 import org.json.JSONObject;
 
 import javax.swing.*;
@@ -39,13 +39,17 @@ public class Register {
             //当用户名密码都正确填写时进入登录界面
             if (!registerUserName.trim().equals("") && registerUserPwd1.equals(registerUserPwd2)) {
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.put("userName",registerUserName);
-                jsonObject.put("userPwd",registerUserPwd1);
-                File file = new File("config.json");
+                jsonObject.put("userName", registerUserName);
+                jsonObject.put("userPwd", registerUserPwd1);
                 try {
-                    OutPutJson.toFile(jsonObject,file);
+                    File jsonFile = new File("config.json");
+                    if (!jsonFile.exists()) {
+                        jsonFile.createNewFile();
+                    }else{
+                        MyJson.writeJson(jsonObject, jsonFile);
+                    }
                 } catch (Exception ex) {
-                    throw new RuntimeException(ex);
+                    ex.printStackTrace();
                 }
                 //关闭注册窗口
                 frame.dispose();
