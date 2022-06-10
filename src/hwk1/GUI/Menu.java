@@ -2,8 +2,6 @@ package hwk1.GUI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 public class Menu {
     private JFrame frame;
@@ -14,7 +12,9 @@ public class Menu {
     private JButton exitSystemButton;
 
     public Menu() {
+        //点击退出按钮结束程序运行
         exitSystemButton.addActionListener(e -> System.exit(0));
+        //点击初始化系统按钮打开初始化系统窗口
         initSystemButton.addActionListener(e -> {
             frame.dispose();
             Initialize initialize = new Initialize();
