@@ -80,7 +80,6 @@ public class Register {
     public boolean unregistered() {
         File file = new File("config.json");
         String contentJson = String.valueOf(MyJson.readJson(file));
-        System.out.println(contentJson);
         Gson gson = new Gson();
         @SuppressWarnings("all")
         Map<String ,String> mapJson = gson.fromJson(contentJson, Map.class);
