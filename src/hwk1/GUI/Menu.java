@@ -42,6 +42,10 @@ public class Menu {
         exitSystemButton.setText("退出程序");
     }
 
+    public static void main(String[] args) {
+        new Menu().menuRun();
+    }
+
     public void menuRun() {
         frame = new JFrame("Menu");
         frame.setContentPane(this.root);
