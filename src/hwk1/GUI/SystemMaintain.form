@@ -17,7 +17,7 @@
         </constraints>
         <properties>
           <font size="18"/>
-          <text value="系统维护"/>
+          <text value=""/>
         </properties>
       </component>
       <vspacer id="2db42">
@@ -35,7 +35,7 @@
           <background color="-16750900"/>
           <font size="14"/>
           <foreground color="-3355444"/>
-          <text value="产品管理"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="4e324" class="javax.swing.JButton" binding="goBackButton">
@@ -48,7 +48,7 @@
           <background color="-3394765"/>
           <font size="14"/>
           <foreground color="-3355444"/>
-          <text value="返回上级菜单"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="67c69" class="javax.swing.JButton" binding="displayLogButton">
@@ -61,7 +61,7 @@
           <background color="-16750900"/>
           <font size="14"/>
           <foreground color="-3355444"/>
-          <text value="显示销售日志"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="cbd82" class="javax.swing.JButton" binding="modifyUserPwdButton">
@@ -74,7 +74,7 @@
           <background color="-16750900"/>
           <font size="14"/>
           <foreground color="-3355444"/>
-          <text value="修改管理员密码"/>
+          <text value=""/>
         </properties>
       </component>
       <vspacer id="cf07d">

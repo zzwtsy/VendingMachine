@@ -2,6 +2,8 @@ package hwk1.GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class SystemMaintain {
     private JFrame frame;
@@ -12,33 +14,45 @@ public class SystemMaintain {
     private JButton displayLogButton;
     private JButton goBackButton;
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("SystemMaintain");
-        frame.setContentPane(new SystemMaintain().root);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-        // 获得窗口宽
-        int windowWidth = frame.getWidth();
-        // 获得窗口高
-        int windowHeight = frame.getHeight();
-        // 定义工具包
-        Toolkit kit = Toolkit.getDefaultToolkit();
-        // 获取屏幕的尺寸
-        Dimension screenSize = kit.getScreenSize();
-        // 获取屏幕的宽
-        int screenWidth = screenSize.width;
-        // 获取屏幕的高
-        int screenHeight = screenSize.height;
-        // 设置窗口居中显示
-        frame.setLocation(screenWidth / 2 - windowWidth / 2, screenHeight / 2 - windowHeight / 2);
+    public SystemMaintain() {
+        //点击返回按钮进入后台管理菜单
+        goBackButton.addActionListener(e -> {
+            frame.dispose();
+            Menu menu = new Menu();
+            menu.menuRun();
+        });
     }
-    public void SystemMaintainRun(){
+
+    public static void main(String[] args) {
+        SystemMaintain systemMaintain = new SystemMaintain();
+        systemMaintain.SystemMaintainRun();
+    }
+
+    /**
+     * 设置窗口文字
+     */
+    private void setWindowText() {
+        text1.setText("系统维护");
+        productControlButton.setText("产品管理");
+        displayLogButton.setText("显示销售日志");
+        modifyUserPwdButton.setText("修改管理员密码");
+        goBackButton.setText("返回上级菜单");
+    }
+
+    public void SystemMaintainRun() {
         frame = new JFrame("SystemMaintain");
         frame.setContentPane(this.root);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                frame.dispose();
+                Menu menu = new Menu();
+                menu.menuRun();
+            }
+        });
         frame.pack();
         frame.setVisible(true);
+        //设置窗口文字
+        setWindowText();
         // 获得窗口宽
         int windowWidth = frame.getWidth();
         // 获得窗口高
