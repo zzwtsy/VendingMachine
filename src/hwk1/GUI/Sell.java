@@ -8,7 +8,7 @@ public class Sell {
     private JLabel textHeader;
     private JPanel showPanel;
     private JPanel choicePanel;
-    private JButton 购买Button;
+    private JButton buyButton;
     private JTextField textField1;
     private JList serialNumberList;
     private JList nameList;
