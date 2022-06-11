@@ -1,7 +1,9 @@
 package hwk1.GUI;
 
 import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class InsertCoins extends JDialog {
     private JPanel contentPane;
@@ -32,8 +34,13 @@ public class InsertCoins extends JDialog {
         contentPane.registerKeyboardAction(e -> onCancel(), KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
+    public static void main(String[] args) {
+        new InsertCoins().insertCoinsRun();
+    }
+
     private void onOK() {
         // 在此处添加您的代码
+
         dispose();
     }
 
@@ -42,10 +49,7 @@ public class InsertCoins extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
-         new InsertCoins().insertCoinsRun();
-    }
-    public void insertCoinsRun(){
+    public void insertCoinsRun() {
         InsertCoins dialog = new InsertCoins();
         dialog.pack();
         dialog.setLocationRelativeTo(null);
