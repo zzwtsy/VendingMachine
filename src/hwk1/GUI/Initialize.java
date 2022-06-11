@@ -37,7 +37,7 @@ public class Initialize {
     /**
      * 设置窗口文字
      */
-    private void setWindowText(){
+    private void setWindowText() {
         textHeader.setText("系统初始化界面");
         textTip.setText("请输入商品名称、价格、数量：");
         textSample.setText("示例：矿泉水:2:100|可乐:3:200");
@@ -53,6 +53,7 @@ public class Initialize {
         String init = initTextField.getText();
         String[] data = init.split("\\|");
         if (!init.trim().equals("")) {
+            int i = 0;
             for (String datum : data) {
                 //jsonObject = null 不可删除
                 @SuppressWarnings("all") JSONObject jsonObject = null;
@@ -60,10 +61,11 @@ public class Initialize {
                 //detail = null 不可删除
                 @SuppressWarnings("all") String[] detail = null;
                 detail = datum.split(":");
-                jsonObject.put(detail[0] + "的名称", detail[0]);
-                jsonObject.put(detail[0] + "的价格", detail[1]);
-                jsonObject.put(detail[0] + "的数量", detail[2]);
+                jsonObject.put("productName" + i, detail[0]);
+                jsonObject.put("productPrice" + i, detail[1]);
+                jsonObject.put("productNumbers" + i, detail[2]);
                 jsonArray.put(jsonObject);
+                i += 1;
             }
             File jsonFile = new File("product.json");
             try {

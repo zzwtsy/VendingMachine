@@ -1,7 +1,12 @@
 package hwk1.GUI;
 
+import com.google.gson.Gson;
+import hwk1.MyJson;
+
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.util.Map;
 
 public class Sell {
     private JPanel root;
@@ -25,19 +30,38 @@ public class Sell {
     private JLabel numbersLable;
     private JLabel buyNumbersLable;
     private JLabel buySerialNumberLable;
+    //产品价格
+    private float productPrice;
+    //产品序号
+    private int serialNumber;
 
     public Sell() {
         buyButton.addActionListener(e -> {
-                new InsertCoins().insertCoinsRun();
+            //获取用户购买产品数量
+            int productNumbers = Integer.parseInt(numbersField.getText());
+            getProductPrice();
+            float accountsPayable = productPrice * productNumbers;
+            new InsertCoins().insertCoinsRun(accountsPayable);
         });
-    }
-
-    private void setWindowText(){
-        textHeader.setText("自动售卖机");
     }
 
     public static void main(String[] args) {
         new Sell().sellRun();
+    }
+
+    //获取产品价格
+    private void getProductPrice() {
+        File file = new File("product.json");
+        String contentJson = String.valueOf(MyJson.readJson(file));
+        Gson gson = new Gson();
+        @SuppressWarnings("all")
+        Map<String, String> mapJson = gson.fromJson(contentJson, Map.class);
+        int n = Integer.parseInt(serialNumberField.getText()) - 1;
+        productPrice = Float.parseFloat(mapJson.get("productPrice" + n));
+    }
+
+    private void setWindowText() {
+        textHeader.setText("自动售卖机");
     }
 
     public void sellRun() {
