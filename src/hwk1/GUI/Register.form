@@ -10,13 +10,13 @@
     </properties>
     <border type="none"/>
     <children>
-      <component id="26677" class="javax.swing.JLabel">
+      <component id="26677" class="javax.swing.JLabel" binding="textHeader">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font size="18"/>
-          <text value="用户注册"/>
+          <text value=""/>
         </properties>
       </component>
       <vspacer id="e2a1">
@@ -48,28 +48,28 @@
         </constraints>
         <properties/>
       </component>
-      <component id="9be01" class="javax.swing.JLabel">
+      <component id="9be01" class="javax.swing.JLabel" binding="textUserNameTip">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="请输入用户名："/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="fb3ca" class="javax.swing.JLabel">
+      <component id="fb3ca" class="javax.swing.JLabel" binding="textUserPwd1Tip">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="请输入注册密码："/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="b9856" class="javax.swing.JLabel">
+      <component id="b9856" class="javax.swing.JLabel" binding="textUserPwd2Tip">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="请再次输入密码："/>
+          <text value=""/>
         </properties>
       </component>
       <component id="23bac" class="javax.swing.JButton" binding="registerButton">
@@ -79,7 +79,7 @@
         <properties>
           <background color="-16750900"/>
           <foreground color="-3355444"/>
-          <text value="注册"/>
+          <text value=""/>
         </properties>
       </component>
     </children>

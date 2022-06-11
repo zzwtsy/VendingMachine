@@ -39,16 +39,16 @@
           <background color="-16750900"/>
           <font size="14"/>
           <foreground color="-3355444"/>
-          <text value="登录"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="220c8" class="javax.swing.JLabel">
+      <component id="220c8" class="javax.swing.JLabel" binding="textHeader">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font size="18"/>
-          <text value="饮料售卖机"/>
+          <text value=""/>
         </properties>
       </component>
       <vspacer id="fd214">
@@ -56,23 +56,23 @@
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <component id="c41d7" class="javax.swing.JLabel">
+      <component id="c41d7" class="javax.swing.JLabel" binding="textUserNameTip">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <alignmentY value="0.5"/>
           <font size="12"/>
-          <text value="用户名"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="2b9" class="javax.swing.JLabel">
+      <component id="2b9" class="javax.swing.JLabel" binding="textUserPwdTip">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font size="12"/>
-          <text value="密码"/>
+          <text value=""/>
         </properties>
       </component>
       <vspacer id="c60dc">

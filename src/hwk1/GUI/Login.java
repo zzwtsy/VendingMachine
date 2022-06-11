@@ -9,6 +9,9 @@ public class Login {
     private JButton loginButton;
     private JFrame frame;
     private JPanel root;
+    private JLabel textHeader;
+    private JLabel textUserNameTip;
+    private JLabel textUserPwdTip;
     private String userName;
     private String userPwd;
 
@@ -34,6 +37,16 @@ public class Login {
         });
     }
 
+    /**
+     * 设置窗口文字
+     */
+    private void setWindowText() {
+        textHeader.setText("饮料售卖机");
+        textUserNameTip.setText("用户名");
+        textUserPwdTip.setText("密码");
+        loginButton.setText("登录");
+    }
+
     public void loginRun(String userName, String userPwd) {
         this.userName = userName;
         this.userPwd = userPwd;
@@ -43,6 +56,8 @@ public class Login {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        //设置窗口文字
+        setWindowText();
         // 获得窗口宽
         int windowWidth = frame.getWidth();
         // 获得窗口高

@@ -16,6 +16,9 @@ public class Initialize {
     private JTextField initTextField;
     private JButton saveButton;
     private JButton goBackButton;
+    private JLabel textHeader;
+    private JLabel textTip;
+    private JLabel textSample;
 
     public Initialize() {
         saveButton.addActionListener(e -> initData());
@@ -29,6 +32,17 @@ public class Initialize {
     public static void main(String[] args) {
         Initialize initialize = new Initialize();
         initialize.initializeRun();
+    }
+
+    /**
+     * 设置窗口文字
+     */
+    private void setWindowText(){
+        textHeader.setText("系统初始化界面");
+        textTip.setText("请输入商品名称、价格、数量：");
+        textSample.setText("示例：矿泉水:2:100|可乐:3:200");
+        saveButton.setText("保存");
+        goBackButton.setText("返回");
     }
 
     /**
@@ -70,10 +84,11 @@ public class Initialize {
         frame.setContentPane(this.root);
         frame.pack();
         frame.setVisible(true);
+        //设置窗口文字
+        setWindowText();
         //点击X时返回上一级窗口
         frame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
-//                onCancel();
                 frame.dispose();
                 Menu menu = new Menu();
                 menu.menuRun();

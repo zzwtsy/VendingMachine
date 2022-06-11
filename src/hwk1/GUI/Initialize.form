@@ -10,13 +10,13 @@
     </properties>
     <border type="none"/>
     <children>
-      <component id="817d0" class="javax.swing.JLabel">
+      <component id="817d0" class="javax.swing.JLabel" binding="textHeader">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font size="18"/>
-          <text value="系统初始化界面"/>
+          <text value=""/>
         </properties>
       </component>
       <vspacer id="36c79">
@@ -24,22 +24,22 @@
           <grid row="7" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <component id="cb6c7" class="javax.swing.JLabel">
+      <component id="cb6c7" class="javax.swing.JLabel" binding="textTip">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font size="16"/>
-          <text value="请输入商品名称、价格、数量："/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="79684" class="javax.swing.JLabel">
+      <component id="79684" class="javax.swing.JLabel" binding="textSample">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font size="14"/>
-          <text value="示例：矿泉水:2:100|可乐:3:200"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="ec3fd" class="javax.swing.JTextField" binding="initTextField">
@@ -60,7 +60,7 @@
         <properties>
           <background color="-16750900"/>
           <foreground color="-3355444"/>
-          <text value="保存"/>
+          <text value=""/>
         </properties>
       </component>
       <vspacer id="28559">
@@ -84,7 +84,7 @@
         <properties>
           <background color="-3394765"/>
           <foreground color="-3355444"/>
-          <text value="返回"/>
+          <text value=""/>
         </properties>
       </component>
     </children>

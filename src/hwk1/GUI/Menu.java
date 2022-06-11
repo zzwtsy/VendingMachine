@@ -2,6 +2,8 @@ package hwk1.GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Menu {
     private JFrame frame;
@@ -10,6 +12,7 @@ public class Menu {
     private JButton sellSystemButton;
     private JButton initSystemButton;
     private JButton exitSystemButton;
+    private JLabel textHeader;
 
     public Menu() {
         //点击退出按钮结束程序运行
@@ -20,6 +23,23 @@ public class Menu {
             Initialize initialize = new Initialize();
             initialize.initializeRun();
         });
+        //点击系统维护按钮进入系统维护界面
+        maintainSystemButton.addActionListener(e -> {
+            frame.dispose();
+            SystemMaintain systemMaintain = new SystemMaintain();
+            systemMaintain.SystemMaintainRun();
+        });
+    }
+
+    /**
+     * 设置窗口文字
+     */
+    private void setWindowText(){
+        textHeader.setText("后台管理菜单");
+        maintainSystemButton.setText("系统维护");
+        sellSystemButton.setText("售卖界面");
+        initSystemButton.setText("初始化系统");
+        exitSystemButton.setText("退出程序");
     }
 
     public void menuRun() {
@@ -28,6 +48,8 @@ public class Menu {
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+        //设置窗口文字
+        setWindowText();
         frame.setVisible(true);
         // 获得窗口宽
         int windowWidth = frame.getWidth();

@@ -21,6 +21,10 @@ public class Register {
     private JPasswordField registerPasswordField2;
     private JPanel root;
     private JButton registerButton;
+    private JLabel textHeader;
+    private JLabel textUserNameTip;
+    private JLabel textUserPwd1Tip;
+    private JLabel textUserPwd2Tip;
 
     public Register() {
         registerButton.addActionListener(e -> {
@@ -95,11 +99,24 @@ public class Register {
         login.loginRun(userNameJson, userPwdJson);
     }
 
+    /**
+     * 设置窗口文字
+     */
+    private void setWindowText(){
+        textHeader.setText("用户注册");
+        textUserNameTip.setText("请输入用户名：");
+        textUserPwd1Tip.setText("请输入注册密码：");
+        textUserPwd2Tip.setText("请再次输入密码：");
+        registerButton.setText("注册");
+    }
+
     public void registerRun() {
         frame.setContentPane(this.root);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        //设置窗口文字
+        setWindowText();
         // 获得窗口宽
         int windowWidth = frame.getWidth();
         // 获得窗口高
