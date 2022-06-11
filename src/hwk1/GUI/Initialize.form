@@ -59,6 +59,7 @@
         </constraints>
         <properties>
           <background color="-16750900"/>
+          <font size="14"/>
           <foreground color="-3355444"/>
           <text value=""/>
         </properties>
@@ -83,6 +84,7 @@
         </constraints>
         <properties>
           <background color="-3394765"/>
+          <font size="14"/>
           <foreground color="-3355444"/>
           <text value=""/>
         </properties>

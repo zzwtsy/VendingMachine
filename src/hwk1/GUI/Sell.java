@@ -2,6 +2,8 @@ package hwk1.GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Sell {
     private JPanel root;
@@ -18,6 +20,13 @@ public class Sell {
     private JPanel namePanel;
     private JPanel pricePanel;
     private JPanel numberPanel;
+
+    public Sell() {
+        buyButton.addActionListener(e -> {
+                new InsertCoins().insertCoinsRun();
+        });
+    }
+
     private void setWindowText(){
         textHeader.setText("自动售卖机");
     }
