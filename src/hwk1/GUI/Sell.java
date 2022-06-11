@@ -2,8 +2,6 @@ package hwk1.GUI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Sell {
     private JPanel root;
@@ -11,7 +9,7 @@ public class Sell {
     private JPanel showPanel;
     private JPanel choicePanel;
     private JButton buyButton;
-    private JTextField textField1;
+    private JTextField serialNumberField;
     private JList serialNumberList;
     private JList nameList;
     private JList priceList;
@@ -20,6 +18,13 @@ public class Sell {
     private JPanel namePanel;
     private JPanel pricePanel;
     private JPanel numberPanel;
+    private JTextField numbersField;
+    private JLabel serialNumberLabel;
+    private JLabel nameLable;
+    private JLabel priceLable;
+    private JLabel numbersLable;
+    private JLabel buyNumbersLable;
+    private JLabel buySerialNumberLable;
 
     public Sell() {
         buyButton.addActionListener(e -> {
