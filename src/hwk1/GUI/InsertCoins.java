@@ -40,7 +40,6 @@ public class InsertCoins extends JDialog {
 
     private void onOK() {
         // 在此处添加您的代码
-
         dispose();
     }
 
