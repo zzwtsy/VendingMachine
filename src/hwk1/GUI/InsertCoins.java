@@ -1,49 +1,26 @@
 package hwk1.GUI;
 
-import com.google.gson.Gson;
-import hwk1.MyJson;
 import hwk1.productSell;
 
 import javax.swing.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.io.File;
-import java.util.Map;
 
-public class InsertCoins extends JDialog {
-    private JPanel contentPane;
-    private JButton buyButton;
-    private JButton cancelButton;
+public class InsertCoins {
+    private JFrame frame;
+    private JPanel root;
     private JLabel payMoney;
     private JTextField userPayMoneyField;
+    private JButton buyButton;
+    private JButton cancelButton;
     private JPanel showPanel;
-    private JPanel root;
     private float accountsPayable;
 
-
     public InsertCoins() {
-        setContentPane(contentPane);
-        setModal(true);
-
-        buyButton.addActionListener(e -> onOK());
-
-        cancelButton.addActionListener(e -> onCancel());
-
-        // 点击 X 时调用 onCancel()
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                onCancel();
-            }
-        });
-
-        // 遇到 ESCAPE 时调用 onCancel()
-        contentPane.registerKeyboardAction(e -> onCancel(), KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        buyButton.addActionListener(e -> onBuyButton());
+        cancelButton.addActionListener(e -> frame.dispose());
     }
 
-    private void onOK() {
-        dispose();
+    private void onBuyButton() {
+        frame.dispose();
         float userPayMoney = Float.parseFloat(userPayMoneyField.getText());
         if (new productSell().pay(userPayMoney,accountsPayable) == 0){
             JOptionPane.showMessageDialog(null, "请取走您的饮料，欢迎下次光临");
@@ -54,26 +31,23 @@ public class InsertCoins extends JDialog {
         }
     }
 
-    /**
-     * 设置窗口文字
-     */
     private void setWindowText(){
         payMoney.setText("请付款" + accountsPayable + "元");
+        buyButton.setText("购买");
+        cancelButton.setText("取消");
     }
 
-    private void onCancel() {
-        dispose();
+    public static void main(String[] args) {
+        new InsertCoins().insertCoinsRun(1);
     }
 
-
-
-    public void insertCoinsRun(float accountsPayable) {
+    public void insertCoinsRun(float accountsPayable){
         this.accountsPayable = accountsPayable;
-        InsertCoins dialog = new InsertCoins();
-        //设置窗口文字
+        frame = new JFrame("InsertCoinsTemp");
+        frame.setContentPane(this.root);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
         setWindowText();
-        dialog.pack();
-        dialog.setLocationRelativeTo(null);
-        dialog.setVisible(true);
     }
 }
