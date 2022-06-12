@@ -1,12 +1,11 @@
 package hwk1.GUI;
 
-import com.google.gson.Gson;
 import hwk1.MyJson;
+import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
-import java.util.Map;
 
 public class Sell {
     private JPanel root;
@@ -30,8 +29,7 @@ public class Sell {
     private JLabel numbersLable;
     private JLabel buyNumbersLable;
     private JLabel buySerialNumberLable;
-    //产品价格
-    private float productPrice;
+    private  float productPrice;
     //产品序号
     private int serialNumber;
 
@@ -52,12 +50,12 @@ public class Sell {
     //获取产品价格
     private void getProductPrice() {
         File file = new File("product.json");
-        String contentJson = String.valueOf(MyJson.readJson(file));
-        Gson gson = new Gson();
+        JSONObject contentJson = (JSONObject) MyJson.readJson(file);
         @SuppressWarnings("all")
-        Map<String, String> mapJson = gson.fromJson(contentJson, Map.class);
         int n = Integer.parseInt(serialNumberField.getText()) - 1;
-        productPrice = Float.parseFloat(mapJson.get("productPrice" + n));
+        //产品价格
+        Object tempProductPrice = contentJson.getJSONObject(String.valueOf(n)).get("productPrice");
+        productPrice = Float.parseFloat((String) tempProductPrice);
     }
 
     private void setWindowText() {
