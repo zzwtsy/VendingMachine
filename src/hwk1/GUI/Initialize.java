@@ -49,7 +49,7 @@ public class Initialize {
      * 初始化数据
      */
     public void initData() {
-        JSONArray jsonArray = new JSONArray();
+        JSONObject json = new JSONObject();
         String init = initTextField.getText();
         String[] data = init.split("\\|");
         if (!init.trim().equals("")) {
@@ -61,15 +61,15 @@ public class Initialize {
                 //detail = null 不可删除
                 @SuppressWarnings("all") String[] detail = null;
                 detail = datum.split(":");
-                jsonObject.put("productName" + i, detail[0]);
-                jsonObject.put("productPrice" + i, detail[1]);
-                jsonObject.put("productNumbers" + i, detail[2]);
-                jsonArray.put(jsonObject);
+                jsonObject.put("productName", detail[0]);
+                jsonObject.put("productPrice", detail[1]);
+                jsonObject.put("productNumbers", detail[2]);
+                json.put(String.valueOf(i),jsonObject);
                 i += 1;
             }
             File jsonFile = new File("product.json");
             try {
-                MyJson.writeJson(jsonArray, jsonFile);
+                MyJson.writeJson(json, jsonFile);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "保存失败");
                 ex.printStackTrace();
