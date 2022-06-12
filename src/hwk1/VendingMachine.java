@@ -45,7 +45,7 @@ public class VendingMachine {
     /**
      * 显示日志内容方法
      */
-    public void displayLog() throws InterruptedException {
+    public void displayLog() {
         System.out.printf("%-10s\t %-10s\t %-10s\t %-10s\t %-10s\t %-10s \n\n", "名称", "购买数量", "用户付款", "找零", "售卖状态", "售卖时间:");
         for (int i = 0; i < logCount; i++) {
             System.out.printf("%-10s\t %-10s\t %-10s\t %-10s\t %-10s\t %-10s \n", LOG_DRINKS_NAME[i][0], LOG_DRINKS_NUMBER[i][0], LOG_USER_PAY_MONEY[i][0] + "元", LOG_CHANGE[i][0] + "元", LOG_USER_SALE_STATUS[i][0], SALE_TIME[i][0]);
@@ -57,7 +57,7 @@ public class VendingMachine {
     /**
      * 修改产品名称
      */
-    public void modifyProductName() throws InterruptedException {
+    public void modifyProductName(){
         while (true) {
             System.out.println("序号" + "\t" + "名称");
             for (int i = 0; i < data.length; i++) {
@@ -83,7 +83,7 @@ public class VendingMachine {
     /**
      * 修改产品序号
      */
-    public void modifyProductNumber() throws InterruptedException {
+    public void modifyProductNumber() {
         while (true) {
             System.out.println("序号" + "\t" + "名称\t\t" + "数量\t");
             for (int i = 0; i < data.length; i++) {
@@ -109,7 +109,7 @@ public class VendingMachine {
     /**
      * 修改产品价格
      */
-    public void modifyProductPrice() throws InterruptedException {
+    public void modifyProductPrice() {
         while (true) {
             System.out.println("序号" + "\t" + "名称\t\t" + "价格\t");
             for (int i = 0; i < data.length; i++) {
@@ -135,7 +135,7 @@ public class VendingMachine {
     /**
      * 产品管理菜单
      */
-    public void productControlMenu() throws InterruptedException {
+    public void productControlMenu() {
         System.out.println("1.修改产品名称\n2.修改产品数量\n3.修改产品价格\n0.返回");
         System.out.print("请输入选项对应序号:");
         int choice = sc.nextInt();
@@ -148,16 +148,6 @@ public class VendingMachine {
         }
     }
 
-    public void init() throws InterruptedException {
-        Thread.sleep(500);
-        System.out.print(".");
-        Thread.sleep(500);
-        System.out.print(".");
-        Thread.sleep(500);
-        System.out.print(".");
-        Thread.sleep(500);
-        System.out.println();
-    }
 
     /**
      * 初始化数据
@@ -184,7 +174,7 @@ public class VendingMachine {
     /**
      * 维护菜单
      */
-    public void maintain() throws InterruptedException {
+    public void maintain() {
         Scanner sc = new Scanner(System.in);
         System.out.println("1.显示售卖记录\n2.产品管理\n3.修改管理员密码\n0.返回");
         System.out.print("请输入数字:");
@@ -205,7 +195,7 @@ public class VendingMachine {
     /**
      * 修改管理密码
      */
-    public void modifyUserPwd() throws InterruptedException {
+    public void modifyUserPwd(){
         VendingMachine vendingMachine = new VendingMachine();
         Console con = System.console();
         System.out.print("请输入原密码:");
@@ -240,7 +230,7 @@ public class VendingMachine {
         maintain();
     }
 
-    public void test() throws InterruptedException {
+    public void test() {
         number[drinksSerialNumber] = number[drinksSerialNumber] - buyNumber;
         SALE_TIME[logCount][0] = DATE.format(new Date());
         logCount += 1;
@@ -253,7 +243,7 @@ public class VendingMachine {
     /**
      * 售卖产品方法
      */
-    public void pay() throws InterruptedException {
+    public void pay()  {
         double count;
         //String类型转换int型。计算用户应付款金额
         double commodityPrices = Double.parseDouble(namePrice[drinksSerialNumber][1]) * buyNumber;
@@ -301,14 +291,11 @@ public class VendingMachine {
     /**
      * 产品售卖界面
      */
-    public void salesInterface() throws InterruptedException {
+    public void salesInterface() {
         if (namePrice == null || number == null) {
             System.out.print("售卖数据未初始化,即将进入初始化页面");
-            init();
             initialize();
-            Thread.sleep(500);
             System.out.print("售卖数据初始化完成,即将进入售卖页面");
-            init();
         }
         System.out.println("***饮料售卖机***");
         System.out.printf("%-3s\t %-10s\t %-10s\t %-10s \n\n", "序号", "名称", "价格", "数量");
@@ -345,7 +332,7 @@ public class VendingMachine {
     /**
      * 开始界面
      */
-    public void startInterface() throws InterruptedException {
+    public void startInterface()  {
         while (true) {
             System.out.println("1.系统维护\n2.进入售卖界面\n3.初始化系统\n0.退出程序");
             System.out.print("请输入数字:");
@@ -363,7 +350,7 @@ public class VendingMachine {
     /**
      * 主方法
      */
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         VendingMachine vm = new VendingMachine();
         System.out.println("***饮料售卖机***");
         //要求用户设置管理员密码
