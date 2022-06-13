@@ -1,4 +1,4 @@
-package hwk1.GUI.selling;
+package hwk1.gui.selling;
 
 import hwk1.productSell;
 

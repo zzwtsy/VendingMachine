@@ -1,4 +1,4 @@
-package hwk1.GUI;
+package hwk1.gui;
 
 import hwk1.tools.MyJson;
 import org.json.JSONObject;

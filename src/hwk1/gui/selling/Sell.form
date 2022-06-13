@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="hwk1.GUI.selling.Sell">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="hwk1.gui.selling.Sell">
   <grid id="27dc6" binding="root" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="5">
     <margin top="10" left="10" bottom="10" right="10"/>
     <constraints>
@@ -16,7 +16,7 @@
         </constraints>
         <properties>
           <font size="18"/>
-          <text value="自动售卖机"/>
+          <text value=""/>
         </properties>
       </component>
       <grid id="5c7e8" binding="choicePanel" layout-manager="GridLayoutManager" row-count="1" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -39,7 +39,7 @@
             </constraints>
             <properties>
               <font size="14"/>
-              <text value="对应序号："/>
+              <text value=""/>
             </properties>
           </component>
           <hspacer id="7bcf7">
@@ -57,7 +57,7 @@
               <background color="-16750900"/>
               <font size="16"/>
               <foreground color="-3355444"/>
-              <text value="购买"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="8d8af" class="javax.swing.JTextField" binding="serialNumberField">
@@ -82,7 +82,7 @@
             </constraints>
             <properties>
               <font size="14"/>
-              <text value="购买数量："/>
+              <text value=""/>
             </properties>
           </component>
           <component id="c146d" class="javax.swing.JTextField" binding="numbersField">

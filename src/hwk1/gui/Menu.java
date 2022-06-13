@@ -1,7 +1,7 @@
-package hwk1.GUI;
+package hwk1.gui;
 
-import hwk1.GUI.maintain.SystemMaintain;
-import hwk1.GUI.selling.Sell;
+import hwk1.gui.maintain.SystemMaintain;
+import hwk1.gui.selling.Sell;
 
 import javax.swing.*;
 import java.awt.*;

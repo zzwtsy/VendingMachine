@@ -1,4 +1,4 @@
-package hwk1.GUI;
+package hwk1.gui;
 
 import javax.swing.*;
 import java.awt.*;

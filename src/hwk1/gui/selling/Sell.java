@@ -1,5 +1,6 @@
-package hwk1.GUI.selling;
+package hwk1.gui.selling;
 
+import hwk1.gui.Login;
 import hwk1.tools.MyJson;
 import org.json.JSONObject;
 
@@ -7,6 +8,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 
 public class Sell {
@@ -24,6 +27,7 @@ public class Sell {
     private JScrollPane content;
     private float productPrice;
     private String[][] data = null;
+    private int n;
     //产品序号
 
     public Sell() {
@@ -31,11 +35,22 @@ public class Sell {
             //获取用户购买产品数量
             int productNumbers = Integer.parseInt(numbersField.getText());
             //获取用户选择的产品序号
-            int n = Integer.parseInt(serialNumberField.getText()) - 1;
-            Object tempProductPrice = getProductInfo().getJSONObject(String.valueOf(n)).get("productPrice");
-            productPrice = Float.parseFloat((String) tempProductPrice);
-            float accountsPayable = productPrice * productNumbers;
-            new InsertCoins().insertCoinsRun(accountsPayable);
+            try {
+                n = Integer.parseInt(serialNumberField.getText()) - 1;
+                if (n + 1 <= 0 | n + 1 > data.length) {
+                    JOptionPane.showMessageDialog(null, "暂无此商品序号");
+                } else if (productNumbers <= 0 | productNumbers > Integer.parseInt(data[n][3])) {
+                    JOptionPane.showMessageDialog(null, "购买的商品数量错误");
+                } else {
+                    Object tempProductPrice = getProductInfo().getJSONObject(String.valueOf(n)).get("productPrice");
+                    productPrice = Float.parseFloat((String) tempProductPrice);
+                    float accountsPayable = productPrice * productNumbers;
+                    new InsertCoins().insertCoinsRun(accountsPayable);
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "请输入要购买的商品序号");
+            }
+
         });
     }
 
@@ -52,11 +67,12 @@ public class Sell {
     }
 
     private void setWindowText() {
-        textHeader.setText("自动售卖机");
+        textHeader.setText("饮料售卖机");
         buyButton.setText("购买");
         productSerialNumberLable.setText("对应序号：");
         buyNumbersLable.setText("购买数量：");
         textHeader.setText("自动售卖机");
+        numbersField.setText("1");
     }
 
     public void sellRun() {
@@ -68,11 +84,20 @@ public class Sell {
         //表格文字只读
         table.setEnabled(false);
         //文字居中
-        DefaultTableCellRenderer fontCenter=new DefaultTableCellRenderer();
+        DefaultTableCellRenderer fontCenter = new DefaultTableCellRenderer();
         fontCenter.setHorizontalAlignment(JLabel.CENTER);
         table.setDefaultRenderer(Object.class, fontCenter);
         //点击X结束系统运行
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                File file = new File("config.json");
+                JSONObject contentJson = (JSONObject) MyJson.readJson(file);
+                String userNameJson = (String) contentJson.get("userName");
+                String userPwdJson = (String) contentJson.get("userPwd");
+                new Login().loginRun(userNameJson, userPwdJson);
+            }
+        });
         frame.pack();
         frame.setVisible(true);
         //设置窗口文字
