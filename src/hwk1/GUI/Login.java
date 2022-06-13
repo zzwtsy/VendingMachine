@@ -51,7 +51,6 @@ public class Login {
         this.userName = userName;
         this.userPwd = userPwd;
         frame = new JFrame("Login");
-        frame.setLocationRelativeTo(null);
         frame.setContentPane(this.root);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
