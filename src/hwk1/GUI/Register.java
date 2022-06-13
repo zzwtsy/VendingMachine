@@ -1,17 +1,13 @@
 package hwk1.GUI;
 
-import com.google.gson.Gson;
-import hwk1.MyJson;
+import hwk1.tools.MyJson;
 import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
-import java.util.Map;
 
 public class Register {
-    static String userNameJson;
-    static String userPwdJson;
     private final JFrame frame = new JFrame("register");
     String registerUserName;
     String registerUserPwd1;
@@ -58,36 +54,6 @@ public class Register {
         });
     }
 
-    public static void main(String[] args) {
-        Register register = new Register();
-        File jsonFile = new File("config.json");
-        //检查config.json文件是否存在
-        if (jsonFile.exists()) {
-            //判断管理员是否注册
-            if (register.unregistered()) {
-                register.toLoginFrame(userNameJson, userPwdJson);
-            } else {
-                register.registerRun();
-            }
-        } else {
-            register.registerRun();
-        }
-    }
-
-    /**
-     * 判断管理员是否注册
-     */
-    public boolean unregistered() {
-        File file = new File("config.json");
-        String contentJson = String.valueOf(MyJson.readJson(file));
-        Gson gson = new Gson();
-        @SuppressWarnings("all")
-        Map<String ,String> mapJson = gson.fromJson(contentJson, Map.class);
-        userNameJson = mapJson.get("userName");
-        userPwdJson = mapJson.get("userPwd");
-        return userNameJson != null && userPwdJson != null;
-    }
-
     /**
      * 跳转登录窗口
      */
@@ -101,7 +67,7 @@ public class Register {
     /**
      * 设置窗口文字
      */
-    private void setWindowText(){
+    private void setWindowText() {
         textHeader.setText("用户注册");
         textUserNameTip.setText("请输入用户名：");
         textUserPwd1Tip.setText("请输入注册密码：");
