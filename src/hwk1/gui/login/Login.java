@@ -1,4 +1,6 @@
-package hwk1.gui;
+package hwk1.gui.login;
+
+import hwk1.gui.Menu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,7 +33,7 @@ public class Login {
                 JOptionPane.showMessageDialog(null, "用户密码错误");
             } else {
                 frame.dispose();
-                Menu menu = new Menu();
+                hwk1.gui.Menu menu = new Menu();
                 menu.menuRun();
             }
         });

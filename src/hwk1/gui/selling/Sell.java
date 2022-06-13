@@ -1,6 +1,6 @@
 package hwk1.gui.selling;
 
-import hwk1.gui.Login;
+import hwk1.gui.login.SellLogin;
 import hwk1.tools.MyJson;
 import org.json.JSONObject;
 
@@ -8,11 +8,10 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.File;
 
 public class Sell {
+    private JFrame frame;
     private JPanel root;
     private JLabel textHeader;
     @SuppressWarnings("all")
@@ -25,6 +24,7 @@ public class Sell {
     private JTable table;
     @SuppressWarnings("all")
     private JScrollPane content;
+    private JButton manageButton;
     private float productPrice;
     private String[][] data = null;
     private int n;
@@ -52,6 +52,14 @@ public class Sell {
             }
 
         });
+        manageButton.addActionListener(e -> {
+            File file = new File("config.json");
+            JSONObject contentJson = (JSONObject) MyJson.readJson(file);
+            String userNameJson = (String) contentJson.get("userName");
+            String userPwdJson = (String) contentJson.get("userPwd");
+            new SellLogin().loginRun(userNameJson, userPwdJson);
+            frame.dispose();
+        });
     }
 
     public static void main(String[] args) {
@@ -73,12 +81,13 @@ public class Sell {
         buyNumbersLable.setText("购买数量：");
         textHeader.setText("自动售卖机");
         numbersField.setText("1");
+        manageButton.setText("后台管理");
     }
 
     public void sellRun() {
         String[] value = {"序号", "名称", "价格/元", "数量/瓶"};
         getTableInfo();
-        JFrame frame = new JFrame("Sell");
+        frame = new JFrame("Sell");
         frame.setContentPane(this.root);
         table.setModel(new DefaultTableModel(data, value));
         //表格文字只读
@@ -88,16 +97,7 @@ public class Sell {
         fontCenter.setHorizontalAlignment(JLabel.CENTER);
         table.setDefaultRenderer(Object.class, fontCenter);
         //点击X结束系统运行
-//        frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-        frame.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                File file = new File("config.json");
-                JSONObject contentJson = (JSONObject) MyJson.readJson(file);
-                String userNameJson = (String) contentJson.get("userName");
-                String userPwdJson = (String) contentJson.get("userPwd");
-                new Login().loginRun(userNameJson, userPwdJson);
-            }
-        });
+        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
         //设置窗口文字
