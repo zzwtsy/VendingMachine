@@ -1,4 +1,4 @@
-package hwk1;
+package hwk1.tools;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

@@ -1,4 +1,6 @@
-package hwk1.GUI;
+package hwk1.GUI.maintain;
+
+import hwk1.GUI.Menu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +20,7 @@ public class SystemMaintain {
         //点击返回按钮进入后台管理菜单
         goBackButton.addActionListener(e -> {
             frame.dispose();
-            Menu menu = new Menu();
+            hwk1.GUI.Menu menu = new hwk1.GUI.Menu();
             menu.menuRun();
         });
     }
@@ -45,7 +47,7 @@ public class SystemMaintain {
         frame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 frame.dispose();
-                Menu menu = new Menu();
+                hwk1.GUI.Menu menu = new Menu();
                 menu.menuRun();
             }
         });

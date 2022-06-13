@@ -1,6 +1,7 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
+    <inspection_tool class="BoundFieldAssignment" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="JavadocDeclaration" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ADDITIONAL_TAGS" value="logCount,saleStatus,userPayMoney,buyNumber,drinksSerialNumber,SALE_TIME,LOG_DRINKS_NAME,LOG_DRINKS_NUMBER,LOG_USER_PAY_MONEY,LOG_USER_SALE_STATUS,LOG_CHANGE" />
     </inspection_tool>

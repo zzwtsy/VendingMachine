@@ -1,4 +1,4 @@
-package hwk1.GUI;
+package hwk1.GUI.selling;
 
 import hwk1.productSell;
 
@@ -45,6 +45,7 @@ public class InsertCoins {
         this.accountsPayable = accountsPayable;
         frame = new JFrame("InsertCoinsTemp");
         frame.setContentPane(this.root);
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
