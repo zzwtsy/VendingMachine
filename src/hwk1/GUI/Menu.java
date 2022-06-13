@@ -1,5 +1,8 @@
 package hwk1.GUI;
 
+import hwk1.GUI.maintain.SystemMaintain;
+import hwk1.GUI.selling.Sell;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -18,30 +21,32 @@ public class Menu {
         //点击初始化系统按钮打开初始化系统窗口
         initSystemButton.addActionListener(e -> {
             frame.dispose();
-            Initialize initialize = new Initialize();
-            initialize.initializeRun();
+            new Initialize().initializeRun();
         });
         //点击系统维护按钮进入系统维护界面
         maintainSystemButton.addActionListener(e -> {
             frame.dispose();
-            SystemMaintain systemMaintain = new SystemMaintain();
-            systemMaintain.SystemMaintainRun();
+            new SystemMaintain().SystemMaintainRun();
         });
+        sellSystemButton.addActionListener(e -> {
+            frame.dispose();
+            new Sell().sellRun();
+        });
+    }
+
+    public static void main(String[] args) {
+        new Menu().menuRun();
     }
 
     /**
      * 设置窗口文字
      */
-    private void setWindowText(){
+    private void setWindowText() {
         textHeader.setText("后台管理菜单");
         maintainSystemButton.setText("系统维护");
         sellSystemButton.setText("售卖界面");
         initSystemButton.setText("初始化系统");
         exitSystemButton.setText("退出程序");
-    }
-
-    public static void main(String[] args) {
-        new Menu().menuRun();
     }
 
     public void menuRun() {
