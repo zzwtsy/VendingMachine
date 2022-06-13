@@ -1,7 +1,6 @@
 package hwk1.GUI;
 
-import hwk1.MyJson;
-import org.json.JSONArray;
+import hwk1.tools.MyJson;
 import org.json.JSONObject;
 
 import javax.swing.*;
