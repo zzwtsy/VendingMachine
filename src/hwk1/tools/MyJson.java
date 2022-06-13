@@ -17,7 +17,7 @@ public class MyJson {
             throw new Exception("必须是org.json.JSONObject或org.json.JSONArray");
         }
         //存入文件
-        OutputStream outputStream = new FileOutputStream(file, true);
+        OutputStream outputStream = new FileOutputStream(file);
         byte[] data = jsonstr.getBytes(StandardCharsets.UTF_8);
         outputStream.write(data);
         outputStream.close();
