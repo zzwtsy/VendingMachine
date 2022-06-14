@@ -3,6 +3,8 @@ package hwk1.gui.selling;
 import hwk1.productSell;
 
 import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class InsertCoins {
     private JFrame frame;
@@ -46,7 +48,11 @@ public class InsertCoins {
         frame = new JFrame("InsertCoinsTemp");
         frame.setContentPane(this.root);
         frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                frame.dispose();
+            }
+        });
         frame.pack();
         frame.setVisible(true);
         setWindowText();

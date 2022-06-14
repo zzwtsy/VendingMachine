@@ -42,6 +42,7 @@
             </constraints>
             <properties>
               <background color="-16750900"/>
+              <foreground color="-3355444"/>
               <text value=""/>
             </properties>
           </component>
@@ -56,6 +57,7 @@
             </constraints>
             <properties>
               <background color="-3394765"/>
+              <foreground color="-3355444"/>
               <text value=""/>
             </properties>
           </component>
