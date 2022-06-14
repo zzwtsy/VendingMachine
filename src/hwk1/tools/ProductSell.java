@@ -1,6 +1,6 @@
 package hwk1.tools;
 
-public class productSell {
+public class ProductSell {
     /**
      *
      * @param userPayMoney 用户付款的金额

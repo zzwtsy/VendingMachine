@@ -1,4 +1,4 @@
 package hwk1.gui.maintain;
 
-public class productControl {
+public class ProductControl {
 }
