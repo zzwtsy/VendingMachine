@@ -29,8 +29,7 @@ public class Initialize {
         });
         goBackButton.addActionListener(e -> {
             frame.dispose();
-            Menu menu = new Menu();
-            menu.menuRun();
+            new Menu().menuRun();
         });
     }
 
