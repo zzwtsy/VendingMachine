@@ -1,4 +1,4 @@
-package hwk1;
+package hwk1.tools;
 
 public class productSell {
     public float pay(float userPayMoney, float accountsPayable) {

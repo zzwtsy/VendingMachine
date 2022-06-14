@@ -1,6 +1,6 @@
 package hwk1.gui.selling;
 
-import hwk1.productSell;
+import hwk1.tools.productSell;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
