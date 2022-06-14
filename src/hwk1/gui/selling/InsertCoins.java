@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import static hwk1.tools.WindowCenter.initFrame;
+
 public class InsertCoins {
     private JFrame frame;
     private JPanel root;
@@ -47,7 +49,6 @@ public class InsertCoins {
         this.accountsPayable = accountsPayable;
         frame = new JFrame("InsertCoinsTemp");
         frame.setContentPane(this.root);
-        frame.setLocationRelativeTo(null);
         frame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 frame.dispose();
@@ -56,5 +57,7 @@ public class InsertCoins {
         frame.pack();
         frame.setVisible(true);
         setWindowText();
+        //窗口居中
+        initFrame(frame);
     }
 }

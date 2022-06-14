@@ -7,6 +7,13 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 public class MyJson {
+    /**
+     * 将json数据写入文件
+     *
+     * @param json 要写入的json数据
+     * @param file 要写入的文件路径
+     * @throws Exception 读取json文件错误时抛出异常
+     */
     public static void writeJson(Object json, File file) throws Exception {
         String jsonstr;
         if (json instanceof JSONObject) {
@@ -23,6 +30,12 @@ public class MyJson {
         outputStream.close();
     }
 
+    /**
+     * 读取json文件中的数据
+     *
+     * @param file 要读取的json文件地址
+     * @return 返回json数据
+     */
     public static Object readJson(File file) {
         try (InputStream inputStream = new FileInputStream(file)) {
             int fileSize = (int) file.length();
