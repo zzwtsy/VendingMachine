@@ -19,8 +19,8 @@ public class Sell {
     private JButton buyButton;
     private JTextField serialNumberField;
     private JTextField numbersField;
-    private JLabel buyNumbersLable;
-    private JLabel productSerialNumberLable;
+    private JLabel buyNumbersLabel;
+    private JLabel productSerialNumberLabel;
     private JTable table;
     @SuppressWarnings("all")
     private JScrollPane content;
@@ -53,12 +53,12 @@ public class Sell {
 
         });
         manageButton.addActionListener(e -> {
+            frame.dispose();
             File file = new File("config.json");
             JSONObject contentJson = (JSONObject) MyJson.readJson(file);
             String userNameJson = (String) contentJson.get("userName");
             String userPwdJson = (String) contentJson.get("userPwd");
             new SellLogin().loginRun(userNameJson, userPwdJson);
-            frame.dispose();
         });
     }
 
@@ -70,15 +70,19 @@ public class Sell {
      * 获取产品信息
      */
     public JSONObject getProductInfo() {
-        File file = new File("product.json");
-        return (JSONObject) MyJson.readJson(file);
+        try {
+            File file = new File("product.json");
+            return (JSONObject) MyJson.readJson(file);
+        } catch (Exception ex) {
+            return null;
+        }
     }
 
     private void setWindowText() {
         textHeader.setText("饮料售卖机");
         buyButton.setText("购买");
-        productSerialNumberLable.setText("对应序号：");
-        buyNumbersLable.setText("购买数量：");
+        productSerialNumberLabel.setText("对应序号：");
+        buyNumbersLabel.setText("购买数量：");
         textHeader.setText("自动售卖机");
         numbersField.setText("1");
         manageButton.setText("后台管理");
@@ -86,9 +90,9 @@ public class Sell {
 
     public void sellRun() {
         String[] value = {"序号", "名称", "价格/元", "数量/瓶"};
-        getTableInfo();
         frame = new JFrame("Sell");
         frame.setContentPane(this.root);
+        getTableInfo();
         table.setModel(new DefaultTableModel(data, value));
         //表格文字只读
         table.setEnabled(false);
@@ -120,17 +124,21 @@ public class Sell {
     }
 
     private void getTableInfo() {
-        JSONObject contentJson = new Sell().getProductInfo();
-        data = new String[contentJson.length()][4];
-        for (int i = 0; i < contentJson.length(); i++) {
-            String n = String.valueOf(i);
-            String productPrice = (String) contentJson.getJSONObject(n).get("productPrice");
-            String productNumbers = (String) contentJson.getJSONObject(n).get("productNumbers");
-            String productName = (String) contentJson.getJSONObject(n).get("productName");
-            data[i][0] = String.valueOf(i + 1);
-            data[i][1] = productName;
-            data[i][2] = productPrice;
-            data[i][3] = productNumbers;
+        JSONObject contentJson = getProductInfo();
+        if (contentJson == null) {
+            JOptionPane.showMessageDialog(null, "请初始化产品信息");
+        } else {
+            data = new String[contentJson.length()][4];
+            for (int i = 0; i < contentJson.length(); i++) {
+                String n = String.valueOf(i);
+                String productPrice = (String) contentJson.getJSONObject(n).get("productPrice");
+                String productNumbers = (String) contentJson.getJSONObject(n).get("productNumbers");
+                String productName = (String) contentJson.getJSONObject(n).get("productName");
+                data[i][0] = String.valueOf(i + 1);
+                data[i][1] = productName;
+                data[i][2] = productPrice;
+                data[i][3] = productNumbers;
+            }
         }
     }
 }
