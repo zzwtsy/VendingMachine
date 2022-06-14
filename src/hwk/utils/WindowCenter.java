@@ -1,4 +1,4 @@
-package hwk1.utils;
+package hwk.utils;
 
 import javax.swing.*;
 import java.awt.*;

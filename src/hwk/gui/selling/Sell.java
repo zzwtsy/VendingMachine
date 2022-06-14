@@ -1,8 +1,8 @@
-package hwk1.gui.selling;
+package hwk.gui.selling;
 
-import hwk1.gui.login.SellLogin;
-import hwk1.utils.GetProductInfo;
-import hwk1.utils.MyJson;
+import hwk.gui.login.SellLogin;
+import hwk.utils.GetProductInfo;
+import hwk.utils.MyJson;
 import org.json.JSONObject;
 
 import javax.swing.*;
@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
 
-import static hwk1.utils.WindowCenter.initFrame;
+import static hwk.utils.WindowCenter.initFrame;
 
 public class Sell {
     GetProductInfo getProductInfo;

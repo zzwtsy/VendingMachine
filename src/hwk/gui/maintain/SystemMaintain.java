@@ -1,12 +1,12 @@
-package hwk1.gui.maintain;
+package hwk.gui.maintain;
 
-import hwk1.gui.Menu;
+import hwk.gui.Menu;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import static hwk1.utils.WindowCenter.initFrame;
+import static hwk.utils.WindowCenter.initFrame;
 
 public class SystemMaintain {
     private JFrame frame;
@@ -21,7 +21,7 @@ public class SystemMaintain {
         //点击返回按钮进入后台管理菜单
         goBackButton.addActionListener(e -> {
             frame.dispose();
-            hwk1.gui.Menu menu = new hwk1.gui.Menu();
+            hwk.gui.Menu menu = new hwk.gui.Menu();
             menu.menuRun();
         });
     }

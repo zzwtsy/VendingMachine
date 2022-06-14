@@ -1,7 +1,7 @@
-package hwk1.gui.login;
+package hwk.gui.login;
 
-import hwk1.gui.Menu;
-import hwk1.gui.selling.Sell;
+import hwk.gui.Menu;
+import hwk.gui.selling.Sell;
 
 import javax.swing.*;
 import java.awt.*;
@@ -34,7 +34,7 @@ public class SellLogin {
                 new Sell().sellRun();
             } else {
                 frame.dispose();
-                hwk1.gui.Menu menu = new Menu();
+                hwk.gui.Menu menu = new Menu();
                 menu.menuRun();
             }
         });

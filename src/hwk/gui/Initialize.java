@@ -1,11 +1,11 @@
-package hwk1.gui;
+package hwk.gui;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import static hwk1.utils.SaveProductData.saveProductData;
-import static hwk1.utils.WindowCenter.initFrame;
+import static hwk.utils.SaveProductData.saveProductData;
+import static hwk.utils.WindowCenter.initFrame;
 
 public class Initialize {
     private JFrame frame;

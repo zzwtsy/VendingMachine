@@ -1,4 +1,4 @@
-package hwk1.gui.maintain;
+package hwk.gui.maintain;
 
 public class ProductControl {
 }

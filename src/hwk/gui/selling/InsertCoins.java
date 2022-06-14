@@ -1,11 +1,11 @@
-package hwk1.gui.selling;
+package hwk.gui.selling;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import static hwk1.utils.WindowCenter.initFrame;
-import static hwk1.utils.ProductSell.pay;
+import static hwk.utils.WindowCenter.initFrame;
+import static hwk.utils.ProductSell.pay;
 
 public class InsertCoins {
     private JFrame frame;

@@ -1,4 +1,4 @@
-package hwk1.utils;
+package hwk.utils;
 
 import org.json.JSONObject;
 

@@ -1,11 +1,11 @@
-package hwk1.gui;
+package hwk.gui;
 
-import hwk1.gui.maintain.SystemMaintain;
-import hwk1.gui.selling.Sell;
+import hwk.gui.maintain.SystemMaintain;
+import hwk.gui.selling.Sell;
 
 import javax.swing.*;
 
-import static hwk1.utils.WindowCenter.initFrame;
+import static hwk.utils.WindowCenter.initFrame;
 
 public class Menu {
     private JFrame frame;

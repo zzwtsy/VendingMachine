@@ -1,11 +1,11 @@
-package hwk1;
+package hwk;
 
-import hwk1.gui.Register;
-import hwk1.gui.login.Login;
+import hwk.gui.Register;
+import hwk.gui.login.Login;
 
 import java.io.File;
 
-import static hwk1.utils.CheckRegistered.checkRegistered;
+import static hwk.utils.CheckRegistered.checkRegistered;
 
 /**
  * @author zzwtsy
