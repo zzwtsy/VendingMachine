@@ -7,6 +7,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import static hwk1.tools.WindowCenter.initFrame;
+import static hwk1.tools.productSell.pay;
 
 public class InsertCoins {
     private JFrame frame;
@@ -26,12 +27,12 @@ public class InsertCoins {
     private void onBuyButton() {
         frame.dispose();
         float userPayMoney = Float.parseFloat(userPayMoneyField.getText());
-        if (new productSell().pay(userPayMoney,accountsPayable) == 0){
+        if (pay(userPayMoney,accountsPayable) == 0){
             JOptionPane.showMessageDialog(null, "请取走您的饮料，欢迎下次光临");
-        } else if (new productSell().pay(userPayMoney,accountsPayable) == -1) {
+        } else if (pay(userPayMoney,accountsPayable) == -1) {
             JOptionPane.showMessageDialog(null, "购买失败请重新购买");
         }else {
-            JOptionPane.showMessageDialog(null, "找零" + new productSell().pay(userPayMoney,accountsPayable) + "元，请取走您的饮料");
+            JOptionPane.showMessageDialog(null, "找零" + pay(userPayMoney,accountsPayable) + "元，请取走您的饮料");
         }
     }
 
