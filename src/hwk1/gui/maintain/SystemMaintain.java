@@ -47,8 +47,7 @@ public class SystemMaintain {
         frame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 frame.dispose();
-                hwk1.gui.Menu menu = new Menu();
-                menu.menuRun();
+                new Menu().menuRun();
             }
         });
         frame.pack();
