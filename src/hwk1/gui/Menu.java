@@ -5,7 +5,7 @@ import hwk1.gui.selling.Sell;
 
 import javax.swing.*;
 
-import static hwk1.tools.WindowCenter.initFrame;
+import static hwk1.utils.WindowCenter.initFrame;
 
 public class Menu {
     private JFrame frame;

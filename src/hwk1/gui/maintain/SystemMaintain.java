@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import static hwk1.tools.WindowCenter.initFrame;
+import static hwk1.utils.WindowCenter.initFrame;
 
 public class SystemMaintain {
     private JFrame frame;

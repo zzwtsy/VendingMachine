@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import static hwk1.tools.SaveProductData.saveProductData;
-import static hwk1.tools.WindowCenter.initFrame;
+import static hwk1.utils.SaveProductData.saveProductData;
+import static hwk1.utils.WindowCenter.initFrame;
 
 public class Initialize {
     private JFrame frame;

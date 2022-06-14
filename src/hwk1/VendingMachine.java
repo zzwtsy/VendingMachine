@@ -5,7 +5,7 @@ import hwk1.gui.login.Login;
 
 import java.io.File;
 
-import static hwk1.tools.CheckRegistered.checkRegistered;
+import static hwk1.utils.CheckRegistered.checkRegistered;
 
 /**
  * @author zzwtsy

@@ -1,13 +1,13 @@
 package hwk1.gui;
 
 import hwk1.gui.login.Login;
-import hwk1.tools.MyJson;
+import hwk1.utils.MyJson;
 import org.json.JSONObject;
 
 import javax.swing.*;
 import java.io.File;
 
-import static hwk1.tools.WindowCenter.initFrame;
+import static hwk1.utils.WindowCenter.initFrame;
 
 public class Register {
     private final JFrame frame = new JFrame("register");
