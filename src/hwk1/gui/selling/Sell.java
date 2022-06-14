@@ -1,16 +1,19 @@
 package hwk1.gui.selling;
 
 import hwk1.gui.login.SellLogin;
+import hwk1.tools.GetProductInfo;
 import hwk1.tools.MyJson;
 import org.json.JSONObject;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.io.File;
 
+import static hwk1.tools.WindowCenter.initFrame;
+
 public class Sell {
+    GetProductInfo getProductInfo;
     private JFrame frame;
     private JPanel root;
     private JLabel textHeader;
@@ -42,7 +45,7 @@ public class Sell {
                 } else if (productNumbers <= 0 | productNumbers > Integer.parseInt(data[n][3])) {
                     JOptionPane.showMessageDialog(null, "购买的商品数量错误");
                 } else {
-                    Object tempProductPrice = getProductInfo().getJSONObject(String.valueOf(n)).get("productPrice");
+                    Object tempProductPrice = getProductInfo.getProductInfoJson().getJSONObject(String.valueOf(n)).get("productPrice");
                     productPrice = Float.parseFloat((String) tempProductPrice);
                     float accountsPayable = productPrice * productNumbers;
                     new InsertCoins().insertCoinsRun(accountsPayable);
@@ -66,18 +69,6 @@ public class Sell {
         new Sell().sellRun();
     }
 
-    /**
-     * 获取产品信息
-     */
-    public JSONObject getProductInfo() {
-        try {
-            File file = new File("product.json");
-            return (JSONObject) MyJson.readJson(file);
-        } catch (Exception ex) {
-            return null;
-        }
-    }
-
     private void setWindowText() {
         textHeader.setText("饮料售卖机");
         buyButton.setText("购买");
@@ -89,11 +80,13 @@ public class Sell {
     }
 
     public void sellRun() {
-        String[] value = {"序号", "名称", "价格/元", "数量/瓶"};
+        getProductInfo = new GetProductInfo();
+        String[] name = {"序号", "名称", "价格/元", "数量/瓶"};
         frame = new JFrame("Sell");
         frame.setContentPane(this.root);
-        getTableInfo();
-        table.setModel(new DefaultTableModel(data, value));
+        //通过GetProductInfo方法获取产品信息存入到data中
+        data = getProductInfo.getProductInfoData(getProductInfo.getProductInfoJson());
+        table.setModel(new DefaultTableModel(data, name));
         //表格文字只读
         table.setEnabled(false);
         //文字居中
@@ -107,38 +100,7 @@ public class Sell {
         //设置窗口文字
         setWindowText();
         frame.setVisible(true);
-        // 获得窗口宽
-        int windowWidth = frame.getWidth();
-        // 获得窗口高
-        int windowHeight = frame.getHeight();
-        // 定义工具包
-        Toolkit kit = Toolkit.getDefaultToolkit();
-        // 获取屏幕的尺寸
-        Dimension screenSize = kit.getScreenSize();
-        // 获取屏幕的宽
-        int screenWidth = screenSize.width;
-        // 获取屏幕的高
-        int screenHeight = screenSize.height;
-        // 设置窗口居中显示
-        frame.setLocation(screenWidth / 2 - windowWidth / 2, screenHeight / 2 - windowHeight / 2);
-    }
-
-    private void getTableInfo() {
-        JSONObject contentJson = getProductInfo();
-        if (contentJson == null) {
-            JOptionPane.showMessageDialog(null, "请初始化产品信息");
-        } else {
-            data = new String[contentJson.length()][4];
-            for (int i = 0; i < contentJson.length(); i++) {
-                String n = String.valueOf(i);
-                String productPrice = (String) contentJson.getJSONObject(n).get("productPrice");
-                String productNumbers = (String) contentJson.getJSONObject(n).get("productNumbers");
-                String productName = (String) contentJson.getJSONObject(n).get("productName");
-                data[i][0] = String.valueOf(i + 1);
-                data[i][1] = productName;
-                data[i][2] = productPrice;
-                data[i][3] = productNumbers;
-            }
-        }
+        //窗口居中
+        initFrame(frame);
     }
 }
