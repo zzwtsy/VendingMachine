@@ -1,13 +1,10 @@
 package hwk1.gui;
 
-import hwk1.tools.MyJson;
-import org.json.JSONObject;
-
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.File;
 
+import static hwk1.tools.SaveProductData.saveProductData;
 import static hwk1.tools.WindowCenter.initFrame;
 
 public class Initialize {
@@ -21,7 +18,15 @@ public class Initialize {
     private JLabel textSample;
 
     public Initialize() {
-        saveButton.addActionListener(e -> initData());
+        saveButton.addActionListener(e -> {
+            if (saveProductData(initTextField.getText()) == 1) {
+                JOptionPane.showMessageDialog(null, "保存成功");
+            } else if (saveProductData(initTextField.getText()) == -1) {
+                JOptionPane.showMessageDialog(null, "保存失败");
+            } else {
+                JOptionPane.showMessageDialog(null, "保存内容不能为空");
+            }
+        });
         goBackButton.addActionListener(e -> {
             frame.dispose();
             Menu menu = new Menu();
@@ -45,42 +50,6 @@ public class Initialize {
         goBackButton.setText("返回");
     }
 
-    /**
-     * 初始化数据
-     */
-    public void initData() {
-        JSONObject json = new JSONObject();
-        String init = initTextField.getText();
-        String[] data = init.split("\\|");
-        if (!init.trim().equals("")) {
-            int i = 0;
-            for (String datum : data) {
-                //jsonObject = null 不可删除
-                @SuppressWarnings("all") JSONObject jsonObject = null;
-                jsonObject = new JSONObject();
-                //detail = null 不可删除
-                @SuppressWarnings("all") String[] detail = null;
-                detail = datum.split(":");
-                jsonObject.put("productName", detail[0]);
-                jsonObject.put("productPrice", detail[1]);
-                jsonObject.put("productNumbers", detail[2]);
-                json.put(String.valueOf(i), jsonObject);
-                i += 1;
-            }
-            File jsonFile = new File("product.json");
-            try {
-                MyJson.writeJson(json, jsonFile);
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "保存失败");
-                ex.printStackTrace();
-            }
-            JOptionPane.showMessageDialog(null, "保存成功");
-            initTextField.setText("");
-        } else {
-            JOptionPane.showMessageDialog(null, "保存内容不能为空");
-        }
-    }
-
     public void initializeRun() {
         frame = new JFrame("Initialize");
         frame.setContentPane(this.root);
@@ -92,8 +61,7 @@ public class Initialize {
         frame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 frame.dispose();
-                Menu menu = new Menu();
-                menu.menuRun();
+                new Menu().menuRun();
             }
         });
         //窗口居中
