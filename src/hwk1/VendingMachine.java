@@ -1,7 +1,7 @@
 package hwk1;
 
-import hwk1.GUI.Login;
-import hwk1.GUI.Register;
+import hwk1.gui.login.Login;
+import hwk1.gui.Register;
 import hwk1.tools.MyJson;
 import org.json.JSONObject;
 
