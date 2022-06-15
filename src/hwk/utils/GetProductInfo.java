@@ -10,7 +10,7 @@ public class GetProductInfo {
     private String productName;
     private String productNumbers;
 
-    public String getProductPrice(int n,JSONObject contentJson) {
+    public String getProductPrice(int n, JSONObject contentJson) {
         productPrice = (String) contentJson.getJSONObject(String.valueOf(n)).get("productPrice");
         return productPrice;
     }

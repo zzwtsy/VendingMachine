@@ -17,9 +17,9 @@ public class ModifyProductInfo {
     private JTextField productPriceTextField;
     private JTextField productNumbersTextField;
     private int productSerial;
-    private JLabel productNumbersLable;
-    private JLabel productPriceLable;
-    private JLabel productNameLable;
+    private JLabel productNumbersLabel;
+    private JLabel productPriceLabel;
+    private JLabel productNameLabel;
     private JButton saveButton;
     private JButton cancelButton;
 
@@ -41,9 +41,9 @@ public class ModifyProductInfo {
     }
 
     private void setWindowText() {
-        productNameLable.setText("名称");
-        productPriceLable.setText("价格/元");
-        productNumbersLable.setText("数量/瓶");
+        productNameLabel.setText("名称");
+        productPriceLabel.setText("价格/元");
+        productNumbersLabel.setText("数量/瓶");
         saveButton.setText("保存");
         cancelButton.setText("取消");
         GetProductInfo getProductInfo= new GetProductInfo();

@@ -50,7 +50,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="a1874" class="javax.swing.JLabel" binding="productNameLable">
+          <component id="a1874" class="javax.swing.JLabel" binding="productNameLabel">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -58,7 +58,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="72554" class="javax.swing.JLabel" binding="productPriceLable">
+          <component id="72554" class="javax.swing.JLabel" binding="productPriceLabel">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -66,7 +66,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="c2419" class="javax.swing.JLabel" binding="productNumbersLable">
+          <component id="c2419" class="javax.swing.JLabel" binding="productNumbersLabel">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
