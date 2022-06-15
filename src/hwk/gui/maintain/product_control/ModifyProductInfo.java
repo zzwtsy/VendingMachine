@@ -47,13 +47,13 @@ public class ModifyProductInfo {
         saveButton.setText("保存");
         cancelButton.setText("取消");
         GetProductInfo getProductInfo= new GetProductInfo();
-        productNumbersTextField.setText(getProductInfo.getProductNumbers(productSerial -1,getProductInfo.getProductInfoJson()));
-        productPriceTextField.setText(getProductInfo.getProductPrice(productSerial -1,getProductInfo.getProductInfoJson()));
-        productNameTextField.setText(getProductInfo.getProductName(productSerial -1,getProductInfo.getProductInfoJson()));
+        productNumbersTextField.setText(getProductInfo.getProductNumbers(productSerial,getProductInfo.getProductInfoJson()));
+        productPriceTextField.setText(getProductInfo.getProductPrice(productSerial,getProductInfo.getProductInfoJson()));
+        productNameTextField.setText(getProductInfo.getProductName(productSerial,getProductInfo.getProductInfoJson()));
     }
 
     public void modifyProductInfoRun(String productSerial) {
-        this.productSerial = Integer.parseInt(productSerial);
+        this.productSerial = Integer.parseInt(productSerial) -1;
         frame = new JFrame("ModifyProductInfo");
         frame.setContentPane(this.root);
         frame.addWindowListener(new WindowAdapter() {
