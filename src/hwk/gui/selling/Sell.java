@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
 
+import static hwk.utils.UpdateProductInfo.updateProductInfo;
 import static hwk.utils.WindowCenter.initFrame;
 
 public class Sell {
@@ -48,6 +49,8 @@ public class Sell {
                     Object tempProductPrice = getProductInfo.getProductInfoJson().getJSONObject(String.valueOf(n)).get("productPrice");
                     productPrice = Float.parseFloat((String) tempProductPrice);
                     float accountsPayable = productPrice * productNumbers;
+                    updateProductInfo(n, productNumbers);
+                    frame.dispose();
                     new InsertCoins().insertCoinsRun(accountsPayable);
                 }
             } catch (Exception ex) {
@@ -61,6 +64,7 @@ public class Sell {
             JSONObject contentJson = (JSONObject) MyJson.readJson(file);
             String userNameJson = (String) contentJson.get("userName");
             String userPwdJson = (String) contentJson.get("userPwd");
+            frame.dispose();
             new SellLogin().loginRun(userNameJson, userPwdJson);
         });
     }
