@@ -1,6 +1,7 @@
 package hwk.gui.maintain;
 
 import hwk.gui.Menu;
+import hwk.gui.maintain.product_control.ModifyUserInfo;
 import hwk.gui.maintain.product_control.ProductControl;
 
 import javax.swing.*;
@@ -17,7 +18,6 @@ public class SystemMaintain {
     private JLabel text1;
     private JButton productControlButton;
     private JButton modifyUserPwdButton;
-    private JButton displayLogButton;
     private JButton goBackButton;
 
     public SystemMaintain() {
@@ -30,6 +30,10 @@ public class SystemMaintain {
         productControlButton.addActionListener(e -> {
             frame.dispose();
             new ProductControl().productControlRun();
+        });
+        modifyUserPwdButton.addActionListener(e -> {
+            frame.dispose();
+            new ModifyUserInfo().modifyUserInfoRun();
         });
     }
 
@@ -44,7 +48,6 @@ public class SystemMaintain {
     private void setWindowText() {
         text1.setText("系统维护");
         productControlButton.setText("产品管理");
-        displayLogButton.setText("显示销售日志");
         modifyUserPwdButton.setText("修改管理员密码");
         goBackButton.setText("返回上级菜单");
     }
