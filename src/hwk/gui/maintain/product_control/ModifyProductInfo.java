@@ -1,0 +1,71 @@
+package hwk.gui.maintain.product_control;
+
+import hwk.utils.GetProductInfo;
+
+import javax.swing.*;
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import static hwk.utils.UpdateProductInfo.modifyInfo;
+import static hwk.utils.WindowCenter.initFrame;
+
+public class ModifyProductInfo {
+    private JFrame frame;
+    private JPanel root;
+    private JTextField productNameTextField;
+    private JTextField productPriceTextField;
+    private JTextField productNumbersTextField;
+    private int productSerial;
+    private JLabel productNumbersLable;
+    private JLabel productPriceLable;
+    private JLabel productNameLable;
+    private JButton saveButton;
+    private JButton cancelButton;
+
+    public ModifyProductInfo() {
+        saveButton.addActionListener(e -> {
+            String productName = productNameTextField.getText();
+            String productPrice = productPriceTextField.getText();
+            String productNumbers = productNumbersTextField.getText();
+            try{
+                modifyInfo(productSerial, productName, productPrice, productNumbers);
+                JOptionPane.showMessageDialog(null, "修改成功");
+                frame.dispose();
+            }catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "修改失败");
+                frame.dispose();
+            }
+        });
+        cancelButton.addActionListener(e -> frame.dispose());
+    }
+
+    private void setWindowText() {
+        productNameLable.setText("名称");
+        productPriceLable.setText("价格/元");
+        productNumbersLable.setText("数量/瓶");
+        saveButton.setText("保存");
+        cancelButton.setText("取消");
+        GetProductInfo getProductInfo= new GetProductInfo();
+        productNumbersTextField.setText(getProductInfo.getProductNumbers(productSerial -1,getProductInfo.getProductInfoJson()));
+        productPriceTextField.setText(getProductInfo.getProductPrice(productSerial -1,getProductInfo.getProductInfoJson()));
+        productNameTextField.setText(getProductInfo.getProductName(productSerial -1,getProductInfo.getProductInfoJson()));
+    }
+
+    public void modifyProductInfoRun(String productSerial) {
+        this.productSerial = Integer.parseInt(productSerial);
+        frame = new JFrame("ModifyProductInfo");
+        frame.setContentPane(this.root);
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                frame.dispose();
+            }
+        });
+        frame.pack();
+        frame.setVisible(true);
+        //设置窗口文字
+        setWindowText();
+        //窗口居中
+        initFrame(frame);
+    }
+}
