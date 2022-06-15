@@ -32,16 +32,13 @@ public class InsertCoins {
         }else {
             JOptionPane.showMessageDialog(null, "找零" + pay(userPayMoney,accountsPayable) + "元，请取走您的饮料");
         }
+        new Sell().sellRun();
     }
 
     private void setWindowText(){
         payMoney.setText("请付款" + accountsPayable + "元");
         buyButton.setText("购买");
         cancelButton.setText("取消");
-    }
-
-    public static void main(String[] args) {
-        new InsertCoins().insertCoinsRun(1);
     }
 
     public void insertCoinsRun(float accountsPayable){
