@@ -6,7 +6,24 @@ import javax.swing.*;
 import java.io.File;
 
 public class GetProductInfo {
-    private JSONObject contentJson;
+    private String productPrice;
+    private String productName;
+    private String productNumbers;
+
+    public String getProductPrice(int n,JSONObject contentJson) {
+        productPrice = (String) contentJson.getJSONObject(String.valueOf(n)).get("productPrice");
+        return productPrice;
+    }
+
+    public String getProductName(int n,JSONObject contentJson) {
+        productName = (String) contentJson.getJSONObject(String.valueOf(n)).get("productName");
+        return productName;
+    }
+
+    public String getProductNumbers(int n,JSONObject contentJson) {
+        productNumbers = (String) contentJson.getJSONObject(String.valueOf(n)).get("productNumbers");
+        return productNumbers;
+    }
 
     /**
      * 获取json文件中的json数据
@@ -29,7 +46,6 @@ public class GetProductInfo {
      * @return 返回产品信息的二维数组
      */
     public String[][] getProductInfoData(JSONObject contentJson) {
-        this.contentJson = contentJson;
         String[][] data = new String[0][];
         if (contentJson == null) {
             JOptionPane.showMessageDialog(null, "请初始化产品信息");
@@ -37,9 +53,9 @@ public class GetProductInfo {
             data = new String[contentJson.length()][4];
             for (int i = 0; i < contentJson.length(); i++) {
                 String n = String.valueOf(i);
-                String productPrice = (String) contentJson.getJSONObject(n).get("productPrice");
-                String productNumbers = (String) contentJson.getJSONObject(n).get("productNumbers");
-                String productName = (String) contentJson.getJSONObject(n).get("productName");
+                productPrice = (String) contentJson.getJSONObject(n).get("productPrice");
+                productNumbers = (String) contentJson.getJSONObject(n).get("productNumbers");
+                productName = (String) contentJson.getJSONObject(n).get("productName");
                 data[i][0] = String.valueOf(i + 1);
                 data[i][1] = productName;
                 data[i][2] = productPrice;
@@ -47,13 +63,5 @@ public class GetProductInfo {
             }
         }
         return data;
-    }
-
-    public JSONObject getContentJson() {
-        return contentJson;
-    }
-
-    public void setContentJson(JSONObject contentJson) {
-        this.contentJson = contentJson;
     }
 }

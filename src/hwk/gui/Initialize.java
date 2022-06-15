@@ -21,8 +21,10 @@ public class Initialize {
         saveButton.addActionListener(e -> {
             if (saveProductData(initTextField.getText()) == 1) {
                 JOptionPane.showMessageDialog(null, "保存成功");
+                initTextField.setText("");
             } else if (saveProductData(initTextField.getText()) == -1) {
                 JOptionPane.showMessageDialog(null, "保存失败");
+                initTextField.setText("");
             } else {
                 JOptionPane.showMessageDialog(null, "保存内容不能为空");
             }

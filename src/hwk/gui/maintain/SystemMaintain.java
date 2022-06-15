@@ -1,8 +1,11 @@
 package hwk.gui.maintain;
 
 import hwk.gui.Menu;
+import hwk.gui.maintain.product_control.ProductControl;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -23,6 +26,10 @@ public class SystemMaintain {
             frame.dispose();
             hwk.gui.Menu menu = new hwk.gui.Menu();
             menu.menuRun();
+        });
+        productControlButton.addActionListener(e -> {
+            frame.dispose();
+            new ProductControl().productControlRun();
         });
     }
 

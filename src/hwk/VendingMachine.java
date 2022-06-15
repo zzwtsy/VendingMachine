@@ -2,10 +2,9 @@ package hwk;
 
 import hwk.gui.Register;
 import hwk.gui.login.Login;
+import hwk.utils.CheckRegistered;
 
 import java.io.File;
-
-import static hwk.utils.CheckRegistered.checkRegistered;
 
 /**
  * @author zzwtsy
@@ -16,11 +15,14 @@ public class VendingMachine {
 
     public static void main(String[] args) {
         Register register = new Register();
+        CheckRegistered checkRegistered = new CheckRegistered();
         File jsonFile = new File("config.json");
         //检查config.json文件是否存在
         if (jsonFile.exists()) {
             //判断管理员是否注册
-            if (checkRegistered()) {
+            if (checkRegistered.checkRegistered()) {
+                userNameJson = checkRegistered.getUserNameJson();
+                userPwdJson = checkRegistered.getUserPwdJson();
                 new Login().loginRun(userNameJson, userPwdJson);
             } else {
                 register.registerRun();

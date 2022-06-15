@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import static hwk.utils.WindowCenter.initFrame;
 import static hwk.utils.ProductSell.pay;
+import static hwk.utils.WindowCenter.initFrame;
 
 public class InsertCoins {
     private JFrame frame;
@@ -25,23 +25,23 @@ public class InsertCoins {
     private void onBuyButton() {
         frame.dispose();
         float userPayMoney = Float.parseFloat(userPayMoneyField.getText());
-        if (pay(userPayMoney,accountsPayable) == 0){
+        if (pay(userPayMoney, accountsPayable) == 0) {
             JOptionPane.showMessageDialog(null, "请取走您的饮料，欢迎下次光临");
-        } else if (pay(userPayMoney,accountsPayable) == -1) {
+        } else if (pay(userPayMoney, accountsPayable) == -1) {
             JOptionPane.showMessageDialog(null, "购买失败请重新购买");
-        }else {
-            JOptionPane.showMessageDialog(null, "找零" + pay(userPayMoney,accountsPayable) + "元，请取走您的饮料");
+        } else {
+            JOptionPane.showMessageDialog(null, "找零" + pay(userPayMoney, accountsPayable) + "元，请取走您的饮料");
         }
         new Sell().sellRun();
     }
 
-    private void setWindowText(){
+    private void setWindowText() {
         payMoney.setText("请付款" + accountsPayable + "元");
         buyButton.setText("购买");
         cancelButton.setText("取消");
     }
 
-    public void insertCoinsRun(float accountsPayable){
+    public void insertCoinsRun(float accountsPayable) {
         this.accountsPayable = accountsPayable;
         frame = new JFrame("InsertCoinsTemp");
         frame.setContentPane(this.root);
