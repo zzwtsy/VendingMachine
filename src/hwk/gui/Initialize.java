@@ -35,11 +35,6 @@ public class Initialize {
         });
     }
 
-    public static void main(String[] args) {
-        Initialize initialize = new Initialize();
-        initialize.initializeRun();
-    }
-
     /**
      * 设置窗口文字
      */

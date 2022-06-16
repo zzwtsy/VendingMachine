@@ -69,10 +69,6 @@ public class Sell {
         });
     }
 
-    public static void main(String[] args) {
-        new Sell().sellRun();
-    }
-
     private void setWindowText() {
         textHeader.setText("饮料售卖机");
         buyButton.setText("购买");

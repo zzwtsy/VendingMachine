@@ -43,9 +43,6 @@ public class ProductControl {
         okButton.setText("确定");
         goBackButton.setText("返回");
     }
-    public static void main(String[] args) {
-        new ProductControl().productControlRun();
-    }
 
     public void productControlRun() {
         frame = new JFrame("ProductControl");

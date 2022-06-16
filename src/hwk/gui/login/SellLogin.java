@@ -20,9 +20,6 @@ public class SellLogin {
     private String userName;
     private String userPwd;
 
-    public static void main(String[] args) {
-        new SellLogin().loginRun("1","1");
-    }
     public SellLogin() {
         loginButton.addActionListener(e -> {
             String loginUserName = userNameField.getText();

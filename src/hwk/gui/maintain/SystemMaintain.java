@@ -37,11 +37,6 @@ public class SystemMaintain {
         });
     }
 
-    public static void main(String[] args) {
-        SystemMaintain systemMaintain = new SystemMaintain();
-        systemMaintain.SystemMaintainRun();
-    }
-
     /**
      * 设置窗口文字
      */
