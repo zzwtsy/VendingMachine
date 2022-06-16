@@ -6,7 +6,6 @@ import hwk.utils.MyJson;
 import org.json.JSONObject;
 
 import javax.swing.*;
-
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;

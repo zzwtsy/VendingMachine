@@ -3,7 +3,6 @@ package hwk.gui.login;
 import hwk.gui.Menu;
 
 import javax.swing.*;
-import java.awt.*;
 
 import static hwk.utils.WindowCenter.initFrame;
 

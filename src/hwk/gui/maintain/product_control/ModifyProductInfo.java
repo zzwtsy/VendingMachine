@@ -3,7 +3,6 @@ package hwk.gui.maintain.product_control;
 import hwk.utils.GetProductInfo;
 
 import javax.swing.*;
-
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -28,11 +27,11 @@ public class ModifyProductInfo {
             String productName = productNameTextField.getText();
             String productPrice = productPriceTextField.getText();
             String productNumbers = productNumbersTextField.getText();
-            try{
+            try {
                 modifyInfo(productSerial, productName, productPrice, productNumbers);
                 JOptionPane.showMessageDialog(null, "修改成功");
                 frame.dispose();
-            }catch (Exception ex) {
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "修改失败");
                 frame.dispose();
             }
@@ -46,14 +45,14 @@ public class ModifyProductInfo {
         productNumbersLabel.setText("数量/瓶");
         saveButton.setText("保存");
         cancelButton.setText("取消");
-        GetProductInfo getProductInfo= new GetProductInfo();
-        productNumbersTextField.setText(getProductInfo.getProductNumbers(productSerial,getProductInfo.getProductInfoJson()));
-        productPriceTextField.setText(getProductInfo.getProductPrice(productSerial,getProductInfo.getProductInfoJson()));
-        productNameTextField.setText(getProductInfo.getProductName(productSerial,getProductInfo.getProductInfoJson()));
+        GetProductInfo getProductInfo = new GetProductInfo();
+        productNumbersTextField.setText(getProductInfo.getProductNumbers(productSerial, getProductInfo.getProductInfoJson()));
+        productPriceTextField.setText(getProductInfo.getProductPrice(productSerial, getProductInfo.getProductInfoJson()));
+        productNameTextField.setText(getProductInfo.getProductName(productSerial, getProductInfo.getProductInfoJson()));
     }
 
     public void modifyProductInfoRun(String productSerial) {
-        this.productSerial = Integer.parseInt(productSerial) -1;
+        this.productSerial = Integer.parseInt(productSerial) - 1;
         frame = new JFrame("ModifyProductInfo");
         frame.setContentPane(this.root);
         frame.addWindowListener(new WindowAdapter() {

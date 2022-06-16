@@ -15,12 +15,12 @@ public class GetProductInfo {
         return productPrice;
     }
 
-    public String getProductName(int n,JSONObject contentJson) {
+    public String getProductName(int n, JSONObject contentJson) {
         productName = (String) contentJson.getJSONObject(String.valueOf(n)).get("productName");
         return productName;
     }
 
-    public String getProductNumbers(int n,JSONObject contentJson) {
+    public String getProductNumbers(int n, JSONObject contentJson) {
         productNumbers = (String) contentJson.getJSONObject(String.valueOf(n)).get("productNumbers");
         return productNumbers;
     }

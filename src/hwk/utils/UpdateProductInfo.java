@@ -40,10 +40,9 @@ public class UpdateProductInfo {
     }
 
     /**
-     *
-     * @param n 用户选择的商品序号
-     * @param productName 用户修改的商品名
-     * @param productPrice 用户修改的商品价格
+     * @param n              用户选择的商品序号
+     * @param productName    用户修改的商品名
+     * @param productPrice   用户修改的商品价格
      * @param productNumbers 用户修改的商品数量
      */
     public static void modifyInfo(int n, String productName, String productPrice, String productNumbers) {

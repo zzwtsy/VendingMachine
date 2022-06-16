@@ -2,8 +2,7 @@ package hwk.utils;
 
 public class ProductSell {
     /**
-     *
-     * @param userPayMoney 用户付款的金额
+     * @param userPayMoney    用户付款的金额
      * @param accountsPayable 用户需要付款的金额
      * @return 0：无需找零，-1：用户付款的金额少于用户需要付款的金额，default：返回找零金额
      */
