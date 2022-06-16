@@ -4,9 +4,10 @@ import hwk.gui.Menu;
 import hwk.gui.selling.Sell;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+
+import static hwk.utils.WindowCenter.initFrame;
 
 public class SellLogin {
     private JFrame frame;
@@ -61,19 +62,7 @@ public class SellLogin {
         frame.setVisible(true);
         //设置窗口文字
         setWindowText();
-        // 获得窗口宽
-        int windowWidth = frame.getWidth();
-        // 获得窗口高
-        int windowHeight = frame.getHeight();
-        // 定义工具包
-        Toolkit kit = Toolkit.getDefaultToolkit();
-        // 获取屏幕的尺寸
-        Dimension screenSize = kit.getScreenSize();
-        // 获取屏幕的宽
-        int screenWidth = screenSize.width;
-        // 获取屏幕的高
-        int screenHeight = screenSize.height;
-        // 设置窗口居中显示
-        frame.setLocation(screenWidth / 2 - windowWidth / 2, screenHeight / 2 - windowHeight / 2);
+        //窗口居中
+        initFrame(frame);
     }
 }

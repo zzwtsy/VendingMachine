@@ -25,5 +25,4 @@ public class WindowCenter {
         // 设置窗口居中显示
         frame.setLocation(screenWidth / 2 - windowWidth / 2, screenHeight / 2 - windowHeight / 2);
     }
-
 }

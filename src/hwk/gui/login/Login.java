@@ -60,7 +60,6 @@ public class Login {
         frame.setVisible(true);
         //设置窗口文字
         setWindowText();
-        // 获得窗口宽
         //窗口居中
         initFrame(frame);
     }
