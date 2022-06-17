@@ -7,6 +7,9 @@ import java.awt.event.WindowEvent;
 import static hwk.utils.ProductSell.pay;
 import static hwk.utils.WindowCenter.initFrame;
 
+/**
+ * @author meng
+ */
 public class InsertCoins {
     private JFrame frame;
     private JPanel root;
@@ -46,6 +49,7 @@ public class InsertCoins {
         frame = new JFrame("InsertCoinsTemp");
         frame.setContentPane(this.root);
         frame.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 frame.dispose();
             }

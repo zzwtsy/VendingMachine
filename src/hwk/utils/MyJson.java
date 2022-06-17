@@ -6,6 +6,9 @@ import org.json.JSONObject;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * @author meng
+ */
 public class MyJson {
     /**
      * 将json数据写入文件

@@ -9,6 +9,9 @@ import java.awt.event.WindowEvent;
 
 import static hwk.utils.WindowCenter.initFrame;
 
+/**
+ * @author meng
+ */
 public class SellLogin {
     private JFrame frame;
     private JLabel textHeader;
@@ -26,7 +29,7 @@ public class SellLogin {
             String loginUserName = userNameField.getText();
             String loginUserPwd = String.valueOf(userPwdField.getPassword());
             //判断用户点击登录时用户名是否为空，trim：删除前导和尾随空格
-            if (loginUserName.trim().equals("") | !userName.equals(loginUserName) | loginUserPwd.trim().equals("") | !userPwd.equals(loginUserPwd)) {
+            if ("".equals(loginUserName.trim()) | !userName.equals(loginUserName) | "".equals(loginUserPwd.trim()) | !userPwd.equals(loginUserPwd)) {
                 JOptionPane.showMessageDialog(null, "登录错误");
                 frame.dispose();
                 new Sell().sellRun();
@@ -54,6 +57,7 @@ public class SellLogin {
         frame = new JFrame("Login");
         frame.setContentPane(this.root);
         frame.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 new Sell().sellRun();
             }

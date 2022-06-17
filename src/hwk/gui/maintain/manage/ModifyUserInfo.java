@@ -1,4 +1,4 @@
-package hwk.gui.maintain.product_control;
+package hwk.gui.maintain.manage;
 
 import hwk.gui.maintain.SystemMaintain;
 import hwk.utils.CheckRegistered;
@@ -12,6 +12,9 @@ import java.io.File;
 
 import static hwk.utils.WindowCenter.initFrame;
 
+/**
+ * @author meng
+ */
 public class ModifyUserInfo {
     private JFrame frame;
     private JPasswordField userPwdField1;
@@ -38,7 +41,7 @@ public class ModifyUserInfo {
                     MyJson.writeJson(jsonObject, jsonFile);
                     JOptionPane.showMessageDialog(null, "修改成功");
                     frame.dispose();
-                    new SystemMaintain().SystemMaintainRun();
+                    new SystemMaintain().systemMaintainRun();
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -46,7 +49,7 @@ public class ModifyUserInfo {
         });
         cancelButton.addActionListener(e -> {
             frame.dispose();
-            new SystemMaintain().SystemMaintainRun();
+            new SystemMaintain().systemMaintainRun();
         });
     }
 
@@ -61,9 +64,10 @@ public class ModifyUserInfo {
         frame = new JFrame("ModifyUserInfo");
         frame.setContentPane(this.root);
         frame.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 frame.dispose();
-                new SystemMaintain().SystemMaintainRun();
+                new SystemMaintain().systemMaintainRun();
             }
         });
         frame.pack();

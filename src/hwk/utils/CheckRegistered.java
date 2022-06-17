@@ -4,6 +4,9 @@ import org.json.JSONObject;
 
 import java.io.File;
 
+/**
+ * @author meng
+ */
 public class CheckRegistered {
     private String userNameJson;
     private String userPwdJson;

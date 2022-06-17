@@ -7,6 +7,9 @@ import java.awt.event.WindowEvent;
 import static hwk.utils.SaveProductData.saveProductData;
 import static hwk.utils.WindowCenter.initFrame;
 
+/**
+ * @author meng
+ */
 public class Initialize {
     private JFrame frame;
     private JPanel root;
@@ -55,6 +58,7 @@ public class Initialize {
         setWindowText();
         //点击X时返回上一级窗口
         frame.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 frame.dispose();
                 new Menu().menuRun();

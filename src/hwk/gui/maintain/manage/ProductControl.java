@@ -1,4 +1,4 @@
-package hwk.gui.maintain.product_control;
+package hwk.gui.maintain.manage;
 
 import hwk.gui.maintain.SystemMaintain;
 import hwk.utils.GetProductInfo;
@@ -11,6 +11,9 @@ import java.awt.event.WindowEvent;
 
 import static hwk.utils.WindowCenter.initFrame;
 
+/**
+ * @author meng
+ */
 public class ProductControl {
     private JFrame frame;
     private JPanel root;
@@ -33,7 +36,7 @@ public class ProductControl {
         });
         goBackButton.addActionListener(e -> {
             frame.dispose();
-            new SystemMaintain().SystemMaintainRun();
+            new SystemMaintain().systemMaintainRun();
         });
     }
 
@@ -52,9 +55,10 @@ public class ProductControl {
         String[][] data = getProductInfo.getProductInfoData(getProductInfo.getProductInfoJson());
         contentTable.setModel(new DefaultTableModel(data, name));
         frame.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 frame.dispose();
-                new SystemMaintain().SystemMaintainRun();
+                new SystemMaintain().systemMaintainRun();
             }
         });
         //表格文字只读

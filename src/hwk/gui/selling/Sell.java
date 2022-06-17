@@ -13,6 +13,9 @@ import java.io.File;
 import static hwk.utils.UpdateProductInfo.updateProductNumbers;
 import static hwk.utils.WindowCenter.initFrame;
 
+/**
+ * @author meng
+ */
 public class Sell {
     GetProductInfo getProductInfo;
     private JFrame frame;
@@ -37,19 +40,21 @@ public class Sell {
     public Sell() {
         buyButton.addActionListener(e -> {
             //获取用户购买产品数量
-            int productNumbers = Integer.parseInt(numbersField.getText());
+            int userProductNumbers = Integer.parseInt(numbersField.getText());
             //获取用户选择的产品序号
             try {
                 n = Integer.parseInt(serialNumberField.getText()) - 1;
+                //当前用户选择产品的剩余数量
+                int productNumbers = 3;
                 if (n + 1 <= 0 | n + 1 > data.length) {
                     JOptionPane.showMessageDialog(null, "暂无此商品序号");
-                } else if (productNumbers <= 0 | productNumbers > Integer.parseInt(data[n][3])) {
+                } else if (userProductNumbers <= 0 | userProductNumbers > Integer.parseInt(data[n][productNumbers])) {
                     JOptionPane.showMessageDialog(null, "购买的商品数量错误");
                 } else {
                     Object tempProductPrice = getProductInfo.getProductInfoJson().getJSONObject(String.valueOf(n)).get("productPrice");
                     productPrice = Float.parseFloat((String) tempProductPrice);
-                    float accountsPayable = productPrice * productNumbers;
-                    updateProductNumbers(n, productNumbers);
+                    float accountsPayable = productPrice * userProductNumbers;
+                    updateProductNumbers(n, userProductNumbers);
                     frame.dispose();
                     new InsertCoins().insertCoinsRun(accountsPayable);
                 }
@@ -94,7 +99,7 @@ public class Sell {
         fontCenter.setHorizontalAlignment(JLabel.CENTER);
         table.setDefaultRenderer(Object.class, fontCenter);
         //点击X结束系统运行
-        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
         //设置窗口文字

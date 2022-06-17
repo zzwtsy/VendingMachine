@@ -9,6 +9,9 @@ import java.io.File;
 
 import static hwk.utils.WindowCenter.initFrame;
 
+/**
+ * @author meng
+ */
 public class Register {
     private final JFrame frame = new JFrame("register");
     String registerUserName;
@@ -30,13 +33,13 @@ public class Register {
             registerUserPwd1 = String.valueOf(registerPasswordField1.getPassword());
             registerUserPwd2 = String.valueOf(registerPasswordField2.getPassword());
             //用户点击注册时判断用户名是否为空，trim：删除前导和尾随空格
-            if (registerUserName.trim().equals("")) {
+            if ("".equals(registerUserName.trim())) {
                 JOptionPane.showMessageDialog(null, "用户名不能为空");
                 //用户点击注册时判断密码1是否为空，trim：删除前导和尾随空格
-            } else if (registerUserPwd1.trim().equals("")) {
+            } else if ("".equals(registerUserPwd1.trim())) {
                 JOptionPane.showMessageDialog(null, "密码不能为空");
                 //用户点击注册时判断密码2是否为空，trim：删除前导和尾随空格
-            } else if (registerUserPwd2.trim().equals("")) {
+            } else if ("".equals(registerUserPwd2.trim())) {
                 JOptionPane.showMessageDialog(null, "密码不能为空");
                 //用户点击注册时判断密码1与密码2是否一致，trim：删除前导和尾随空格
             } else if (!registerUserPwd1.equals(registerUserPwd2)) {

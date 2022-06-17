@@ -5,6 +5,9 @@ import org.json.JSONObject;
 import javax.swing.*;
 import java.io.File;
 
+/**
+ * @author meng
+ */
 public class GetProductInfo {
     private String productPrice;
     private String productName;

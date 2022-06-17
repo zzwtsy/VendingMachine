@@ -1,8 +1,8 @@
 package hwk.gui.maintain;
 
 import hwk.gui.Menu;
-import hwk.gui.maintain.product_control.ModifyUserInfo;
-import hwk.gui.maintain.product_control.ProductControl;
+import hwk.gui.maintain.manage.ModifyUserInfo;
+import hwk.gui.maintain.manage.ProductControl;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
@@ -10,6 +10,9 @@ import java.awt.event.WindowEvent;
 
 import static hwk.utils.WindowCenter.initFrame;
 
+/**
+ * @author meng
+ */
 public class SystemMaintain {
     private JFrame frame;
     private JPanel root;
@@ -45,10 +48,11 @@ public class SystemMaintain {
         goBackButton.setText("返回上级菜单");
     }
 
-    public void SystemMaintainRun() {
+    public void systemMaintainRun() {
         frame = new JFrame("SystemMaintain");
         frame.setContentPane(this.root);
         frame.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 frame.dispose();
                 new Menu().menuRun();

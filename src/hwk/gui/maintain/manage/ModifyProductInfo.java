@@ -1,4 +1,4 @@
-package hwk.gui.maintain.product_control;
+package hwk.gui.maintain.manage;
 
 import hwk.utils.GetProductInfo;
 
@@ -9,6 +9,9 @@ import java.awt.event.WindowEvent;
 import static hwk.utils.UpdateProductInfo.modifyInfo;
 import static hwk.utils.WindowCenter.initFrame;
 
+/**
+ * @author meng
+ */
 public class ModifyProductInfo {
     private JFrame frame;
     private JPanel root;
@@ -56,6 +59,7 @@ public class ModifyProductInfo {
         frame = new JFrame("ModifyProductInfo");
         frame.setContentPane(this.root);
         frame.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 frame.dispose();
             }

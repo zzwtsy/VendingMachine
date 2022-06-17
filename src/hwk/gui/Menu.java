@@ -7,6 +7,9 @@ import javax.swing.*;
 
 import static hwk.utils.WindowCenter.initFrame;
 
+/**
+ * @author meng
+ */
 public class Menu {
     private JFrame frame;
     private JPanel root;
@@ -27,7 +30,7 @@ public class Menu {
         //点击系统维护按钮进入系统维护界面
         maintainSystemButton.addActionListener(e -> {
             frame.dispose();
-            new SystemMaintain().SystemMaintainRun();
+            new SystemMaintain().systemMaintainRun();
         });
         sellSystemButton.addActionListener(e -> {
             frame.dispose();

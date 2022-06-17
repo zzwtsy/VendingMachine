@@ -4,6 +4,9 @@ import org.json.JSONObject;
 
 import java.io.File;
 
+/**
+ * @author meng
+ */
 public class SaveProductData {
     /**
      * 保存初始化数据
@@ -14,7 +17,7 @@ public class SaveProductData {
     public static int saveProductData(String initTextField) {
         JSONObject json = new JSONObject();
         String[] data = initTextField.split("\\|");
-        if (!initTextField.trim().equals("")) {
+        if (!"".equals(initTextField.trim())) {
             int i = 0;
             for (String datum : data) {
                 //jsonObject = null 不可删除

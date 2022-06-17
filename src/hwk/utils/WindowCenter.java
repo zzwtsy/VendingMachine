@@ -3,6 +3,9 @@ package hwk.utils;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * @author meng
+ */
 public class WindowCenter {
     /**
      * 设置窗口居中

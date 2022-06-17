@@ -1,5 +1,8 @@
 package hwk.utils;
 
+/**
+ * @author meng
+ */
 public class ProductSell {
     /**
      * @param userPayMoney    用户付款的金额
