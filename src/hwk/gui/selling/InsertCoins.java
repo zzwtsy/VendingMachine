@@ -22,7 +22,10 @@ public class InsertCoins {
 
     public InsertCoins() {
         buyButton.addActionListener(e -> onBuyButton());
-        cancelButton.addActionListener(e -> frame.dispose());
+        cancelButton.addActionListener(e -> {
+            frame.dispose();
+            new Sell().sellRun();
+        });
     }
 
     private void onBuyButton() {
