@@ -61,6 +61,8 @@ public class ProductControl {
                 new SystemMaintain().systemMaintainRun();
             }
         });
+        //表格不可拖动
+        contentTable.getTableHeader().setReorderingAllowed(false);
         //表格文字只读
         contentTable.setEnabled(false);
         //文字居中

@@ -92,6 +92,8 @@ public class Sell {
         //通过GetProductInfo方法获取产品信息存入到data中
         data = getProductInfo.getProductInfoData(getProductInfo.getProductInfoJson());
         table.setModel(new DefaultTableModel(data, name));
+        //表格不可拖动
+        table.getTableHeader().setReorderingAllowed(false);
         //表格文字只读
         table.setEnabled(false);
         //文字居中
