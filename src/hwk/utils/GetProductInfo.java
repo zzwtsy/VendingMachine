@@ -14,8 +14,7 @@ public class GetProductInfo {
     private String productNumbers;
 
     /**
-     *
-     * @param n 用户选择的产品序号
+     * @param n           用户选择的产品序号
      * @param contentJson 产品json数据
      * @return 返回产品价格
      */
@@ -25,8 +24,7 @@ public class GetProductInfo {
     }
 
     /**
-     *
-     * @param n 用户选择的产品序号
+     * @param n           用户选择的产品序号
      * @param contentJson 产品json数据
      * @return 返回产品名称
      */
@@ -36,8 +34,7 @@ public class GetProductInfo {
     }
 
     /**
-     *
-     * @param n 用户选择的产品序号
+     * @param n           用户选择的产品序号
      * @param contentJson 产品json数据
      * @return 返回产品数量
      */
