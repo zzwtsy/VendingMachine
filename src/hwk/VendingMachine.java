@@ -5,6 +5,7 @@ import hwk.gui.Register;
 import hwk.gui.login.Login;
 import hwk.utils.CheckRegistered;
 
+import javax.swing.*;
 import java.io.File;
 
 /**
@@ -15,8 +16,14 @@ public class VendingMachine {
     static String userPwdJson;
 
     public static void main(String[] args) {
-        //swing Darcula 主题
-        FlatDarculaLaf.install();
+        //窗口标题栏自动更改颜
+        System.setProperty("apple.awt.application.appearance", "system");
+        //引入FlatDarculaLaf主题
+        try {
+            UIManager.setLookAndFeel(new FlatDarculaLaf());
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize LaF");
+        }
         Register register = new Register();
         CheckRegistered checkRegistered = new CheckRegistered();
         File jsonFile = new File("config.json");
