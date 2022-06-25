@@ -45,12 +45,12 @@ public class UpdateProductInfo {
     /**
      * 修改产品信息
      *
-     * @param n              用户选择的商品序号
-     * @param productName    用户修改的商品名
-     * @param productPrice   用户修改的商品价格
-     * @param productNumbers 用户修改的商品数量
+     * @param n                        用户选择的商品序号
+     * @param userModifyProductName    用户修改的商品名
+     * @param userModifyProductPrice   用户修改的商品价格
+     * @param userModifyProductNumbers 用户修改的商品数量
      */
-    public static void modifyInfo(int n, String productName, String productPrice, String productNumbers) {
+    public static void modifyInfo(int n, String userModifyProductName, String userModifyProductPrice, String userModifyProductNumbers) {
         GetProductInfo getProductInfo = new GetProductInfo();
         String[][] data = getProductInfo.getProductInfoData(getProductInfo.getProductInfoJson());
         JSONObject json = new JSONObject();
@@ -63,9 +63,9 @@ public class UpdateProductInfo {
             @SuppressWarnings("all") String[] detail = null;
             //如果i=n 商品数量减一
             if (n == i) {
-                jsonObject.put("productName", productName);
-                jsonObject.put("productPrice", productPrice);
-                jsonObject.put("productNumbers", productNumbers);
+                jsonObject.put("productName", userModifyProductName);
+                jsonObject.put("productPrice", userModifyProductPrice);
+                jsonObject.put("productNumbers", userModifyProductNumbers);
             } else {
                 jsonObject.put("productName", data[i][1]);
                 jsonObject.put("productPrice", data[i][2]);

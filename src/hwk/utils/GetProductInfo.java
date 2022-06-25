@@ -13,16 +13,34 @@ public class GetProductInfo {
     private String productName;
     private String productNumbers;
 
+    /**
+     *
+     * @param n 用户选择的产品序号
+     * @param contentJson 产品json数据
+     * @return 返回产品价格
+     */
     public String getProductPrice(int n, JSONObject contentJson) {
         productPrice = (String) contentJson.getJSONObject(String.valueOf(n)).get("productPrice");
         return productPrice;
     }
 
+    /**
+     *
+     * @param n 用户选择的产品序号
+     * @param contentJson 产品json数据
+     * @return 返回产品名称
+     */
     public String getProductName(int n, JSONObject contentJson) {
         productName = (String) contentJson.getJSONObject(String.valueOf(n)).get("productName");
         return productName;
     }
 
+    /**
+     *
+     * @param n 用户选择的产品序号
+     * @param contentJson 产品json数据
+     * @return 返回产品数量
+     */
     public String getProductNumbers(int n, JSONObject contentJson) {
         productNumbers = (String) contentJson.getJSONObject(String.valueOf(n)).get("productNumbers");
         return productNumbers;
