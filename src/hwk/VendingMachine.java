@@ -16,7 +16,7 @@ public class VendingMachine {
     static String userPwdJson;
 
     public static void main(String[] args) {
-        //窗口标题栏自动更改颜
+        //MacOS窗口标题栏自动更改颜
         System.setProperty("apple.awt.application.appearance", "system");
         //引入FlatDarculaLaf主题
         try {
