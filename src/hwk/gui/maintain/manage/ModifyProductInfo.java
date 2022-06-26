@@ -1,6 +1,7 @@
 package hwk.gui.maintain.manage;
 
 import hwk.utils.GetProductInfo;
+import hwk.utils.SetLogo;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
@@ -58,6 +59,8 @@ public class ModifyProductInfo {
         this.productSerial = Integer.parseInt(productSerial) - 1;
         frame = new JFrame("ModifyProductInfo");
         frame.setContentPane(this.root);
+        //设置图标
+        new SetLogo().setIconImage(frame);
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {

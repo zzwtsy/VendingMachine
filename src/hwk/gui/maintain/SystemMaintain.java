@@ -3,6 +3,7 @@ package hwk.gui.maintain;
 import hwk.gui.Menu;
 import hwk.gui.maintain.manage.ModifyUserInfo;
 import hwk.gui.maintain.manage.ProductControl;
+import hwk.utils.SetLogo;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
@@ -51,6 +52,8 @@ public class SystemMaintain {
     public void systemMaintainRun() {
         frame = new JFrame("SystemMaintain");
         frame.setContentPane(this.root);
+        //设置图标
+        new SetLogo().setIconImage(frame);
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {

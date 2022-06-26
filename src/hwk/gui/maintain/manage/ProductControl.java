@@ -2,6 +2,7 @@ package hwk.gui.maintain.manage;
 
 import hwk.gui.maintain.SystemMaintain;
 import hwk.utils.GetProductInfo;
+import hwk.utils.SetLogo;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -49,6 +50,8 @@ public class ProductControl {
     public void productControlRun() {
         frame = new JFrame("ProductControl");
         frame.setContentPane(this.root);
+        //设置图标
+        new SetLogo().setIconImage(frame);
         String[] name = {"序号", "名称", "价格/元", "数量/瓶"};
         GetProductInfo getProductInfo = new GetProductInfo();
         //通过GetProductInfo方法获取产品信息存入到data中

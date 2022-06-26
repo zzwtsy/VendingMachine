@@ -3,6 +3,7 @@ package hwk.gui.selling;
 import hwk.gui.login.SellLogin;
 import hwk.utils.GetProductInfo;
 import hwk.utils.MyJson;
+import hwk.utils.SetLogo;
 import org.json.JSONObject;
 
 import javax.swing.*;
@@ -89,6 +90,8 @@ public class Sell {
         String[] name = {"序号", "名称", "价格/元", "数量/瓶"};
         frame = new JFrame("Sell");
         frame.setContentPane(this.root);
+        //设置图标
+        new SetLogo().setIconImage(frame);
         //通过GetProductInfo方法获取产品信息存入到data中
         data = getProductInfo.getProductInfoData(getProductInfo.getProductInfoJson());
         table.setModel(new DefaultTableModel(data, name));

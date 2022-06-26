@@ -2,6 +2,7 @@ package hwk.gui;
 
 import hwk.gui.login.Login;
 import hwk.utils.MyJson;
+import hwk.utils.SetLogo;
 import org.json.JSONObject;
 
 import javax.swing.*;
@@ -82,6 +83,8 @@ public class Register {
 
     public void registerRun() {
         frame.setContentPane(this.root);
+        //设置图标
+        new SetLogo().setIconImage(frame);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

@@ -1,8 +1,16 @@
 package hwk.gui.login;
 
 import hwk.gui.Menu;
+import hwk.utils.SetLogo;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.Objects;
 
 import static hwk.utils.WindowCenter.initFrame;
 
@@ -57,6 +65,8 @@ public class Login {
         this.userName = userName;
         this.userPwd = userPwd;
         frame = new JFrame("Login");
+        //设置图标
+        new SetLogo().setIconImage(frame);
         frame.setContentPane(this.root);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();

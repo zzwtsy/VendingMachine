@@ -2,6 +2,7 @@ package hwk.gui;
 
 import hwk.gui.maintain.SystemMaintain;
 import hwk.gui.selling.Sell;
+import hwk.utils.SetLogo;
 
 import javax.swing.*;
 
@@ -52,6 +53,8 @@ public class Menu {
     public void menuRun() {
         frame = new JFrame("Menu");
         frame.setContentPane(this.root);
+        //设置图标
+        new SetLogo().setIconImage(frame);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();

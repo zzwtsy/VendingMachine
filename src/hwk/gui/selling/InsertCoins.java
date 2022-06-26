@@ -1,5 +1,7 @@
 package hwk.gui.selling;
 
+import hwk.utils.SetLogo;
+
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -51,6 +53,8 @@ public class InsertCoins {
         this.accountsPayable = accountsPayable;
         frame = new JFrame("InsertCoinsTemp");
         frame.setContentPane(this.root);
+        //设置图标
+        new SetLogo().setIconImage(frame);
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {

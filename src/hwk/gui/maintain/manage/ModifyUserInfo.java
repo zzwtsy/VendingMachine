@@ -3,6 +3,7 @@ package hwk.gui.maintain.manage;
 import hwk.gui.maintain.SystemMaintain;
 import hwk.utils.CheckRegistered;
 import hwk.utils.MyJson;
+import hwk.utils.SetLogo;
 import org.json.JSONObject;
 
 import javax.swing.*;
@@ -63,6 +64,8 @@ public class ModifyUserInfo {
     public void modifyUserInfoRun() {
         frame = new JFrame("ModifyUserInfo");
         frame.setContentPane(this.root);
+        //设置图标
+        new SetLogo().setIconImage(frame);
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {

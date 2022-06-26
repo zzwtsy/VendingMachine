@@ -1,5 +1,7 @@
 package hwk.gui;
 
+import hwk.utils.SetLogo;
+
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -52,6 +54,8 @@ public class Initialize {
     public void initializeRun() {
         frame = new JFrame("Initialize");
         frame.setContentPane(this.root);
+        //设置图标
+        new SetLogo().setIconImage(frame);
         frame.pack();
         frame.setVisible(true);
         //设置窗口文字
