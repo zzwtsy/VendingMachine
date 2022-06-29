@@ -38,6 +38,9 @@ public class Sell {
     private int n;
     //产品序号
 
+    /**
+     * Sell 监听事件
+     */
     public Sell() {
         buyButton.addActionListener(e -> {
             //获取用户购买产品数量
@@ -71,10 +74,13 @@ public class Sell {
             String userNameJson = (String) contentJson.get("userName");
             String userPwdJson = (String) contentJson.get("userPwd");
             frame.dispose();
-            new SellLogin().loginRun(userNameJson, userPwdJson);
+            new SellLogin().sellLoginRun(userNameJson, userPwdJson);
         });
     }
 
+    /**
+     * 设置窗口文字
+     */
     private void setWindowText() {
         textHeader.setText("饮料售卖机");
         buyButton.setText("购买");
@@ -85,6 +91,9 @@ public class Sell {
         manageButton.setText("后台管理");
     }
 
+    /**
+     * Sell 入口
+     */
     public void sellRun() {
         getProductInfo = new GetProductInfo();
         String[] name = {"序号", "名称", "价格/元", "数量/瓶"};

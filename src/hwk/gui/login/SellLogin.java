@@ -25,6 +25,9 @@ public class SellLogin {
     private String userName;
     private String userPwd;
 
+    /**
+     * SellLogin 监听事件
+     */
     public SellLogin() {
         loginButton.addActionListener(e -> {
             String loginUserName = userNameField.getText();
@@ -52,7 +55,13 @@ public class SellLogin {
         loginButton.setText("登录");
     }
 
-    public void loginRun(String userName, String userPwd) {
+    /**
+     * SellLogin 入口
+     *
+     * @param userName 用户名
+     * @param userPwd  用户密码
+     */
+    public void sellLoginRun(String userName, String userPwd) {
         this.userName = userName;
         this.userPwd = userPwd;
         frame = new JFrame("Login");

@@ -26,6 +26,9 @@ public class ModifyProductInfo {
     private JButton saveButton;
     private JButton cancelButton;
 
+    /**
+     * ModifyProductInfo 监听事件
+     */
     public ModifyProductInfo() {
         saveButton.addActionListener(e -> {
             String productName = productNameTextField.getText();
@@ -43,6 +46,9 @@ public class ModifyProductInfo {
         cancelButton.addActionListener(e -> frame.dispose());
     }
 
+    /**
+     * 设置窗口文字
+     */
     private void setWindowText() {
         productNameLabel.setText("名称");
         productPriceLabel.setText("价格/元");
@@ -55,6 +61,11 @@ public class ModifyProductInfo {
         productNameTextField.setText(getProductInfo.getProductName(productSerial, getProductInfo.getProductInfoJson()));
     }
 
+    /**
+     * modifyProductInfo 入口
+     *
+     * @param productSerial 商品序号
+     */
     public void modifyProductInfoRun(String productSerial) {
         this.productSerial = Integer.parseInt(productSerial) - 1;
         frame = new JFrame("ModifyProductInfo");

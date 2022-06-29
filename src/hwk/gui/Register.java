@@ -28,6 +28,9 @@ public class Register {
     private JLabel textUserPwd1Tip;
     private JLabel textUserPwd2Tip;
 
+    /**
+     * Register 监听事件
+     */
     public Register() {
         registerButton.addActionListener(e -> {
             registerUserName = registerName.getText();
@@ -81,6 +84,9 @@ public class Register {
         registerButton.setText("注册");
     }
 
+    /**
+     * Register 入口
+     */
     public void registerRun() {
         frame.setContentPane(this.root);
         //设置图标

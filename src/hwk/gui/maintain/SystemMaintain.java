@@ -22,6 +22,9 @@ public class SystemMaintain {
     private JButton modifyUserPwdButton;
     private JButton goBackButton;
 
+    /**
+     * SystemMaintain 监听事件
+     */
     public SystemMaintain() {
         //点击返回按钮进入后台管理菜单
         goBackButton.addActionListener(e -> {
@@ -49,6 +52,9 @@ public class SystemMaintain {
         goBackButton.setText("返回上级菜单");
     }
 
+    /**
+     * SystemMaintain 入口
+     */
     public void systemMaintainRun() {
         frame = new JFrame("SystemMaintain");
         frame.setContentPane(this.root);
