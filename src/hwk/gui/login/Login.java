@@ -22,6 +22,9 @@ public class Login {
     private String userName;
     private String userPwd;
 
+    /**
+     * Login 监听事件
+     */
     public Login() {
         loginButton.addActionListener(e -> {
             String loginUserName = nameField.getText();
@@ -54,6 +57,12 @@ public class Login {
         loginButton.setText("登录");
     }
 
+    /**
+     * Login 入口
+     *
+     * @param userName 用户名
+     * @param userPwd  用户密码
+     */
     public void loginRun(String userName, String userPwd) {
         this.userName = userName;
         this.userPwd = userPwd;

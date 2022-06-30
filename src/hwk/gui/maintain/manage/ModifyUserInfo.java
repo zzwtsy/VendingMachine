@@ -26,6 +26,9 @@ public class ModifyUserInfo {
     private JButton okButton;
     private JButton cancelButton;
 
+    /**
+     * ModifyUserInfo 监听事件
+     */
     public ModifyUserInfo() {
         okButton.addActionListener(e -> {
             CheckRegistered checkRegistered = new CheckRegistered();
@@ -54,6 +57,9 @@ public class ModifyUserInfo {
         });
     }
 
+    /**
+     * 设置窗口文字
+     */
     private void setWindowText() {
         userPwdLabel1.setText("修改密码");
         userPwdLabel2.setText("请再次输入密码");
@@ -61,6 +67,9 @@ public class ModifyUserInfo {
         cancelButton.setText("取消");
     }
 
+    /**
+     * ModifyUserInfo 入口
+     */
     public void modifyUserInfoRun() {
         frame = new JFrame("ModifyUserInfo");
         frame.setContentPane(this.root);

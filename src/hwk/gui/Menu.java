@@ -20,6 +20,9 @@ public class Menu {
     private JButton exitSystemButton;
     private JLabel textHeader;
 
+    /**
+     * Menu 监听事件
+     */
     public Menu() {
         //点击退出按钮结束程序运行
         exitSystemButton.addActionListener(e -> System.exit(0));
@@ -50,6 +53,9 @@ public class Menu {
         exitSystemButton.setText("退出程序");
     }
 
+    /**
+     * Menu 入口
+     */
     public void menuRun() {
         frame = new JFrame("Menu");
         frame.setContentPane(this.root);

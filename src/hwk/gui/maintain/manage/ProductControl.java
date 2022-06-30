@@ -30,6 +30,9 @@ public class ProductControl {
     private JLabel choiceSerialField;
     private JButton goBackButton;
 
+    /**
+     * ProductControl 监听事件
+     */
     public ProductControl() {
         okButton.addActionListener(e -> {
             String productSerial = getChoiceSerialField.getText();
@@ -41,12 +44,18 @@ public class ProductControl {
         });
     }
 
+    /**
+     * 设置窗口文字
+     */
     private void setWindowText() {
         choiceSerialField.setText("请输入对应序号");
         okButton.setText("确定");
         goBackButton.setText("返回");
     }
 
+    /**
+     * ProductControl 入口
+     */
     public void productControlRun() {
         frame = new JFrame("ProductControl");
         frame.setContentPane(this.root);

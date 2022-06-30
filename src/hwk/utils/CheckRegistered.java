@@ -11,10 +11,20 @@ public class CheckRegistered {
     private String userNameJson;
     private String userPwdJson;
 
+    /**
+     * 获取json文件中存储的用户名
+     *
+     * @return 返回用String类型户名
+     */
     public String getUserNameJson() {
         return userNameJson;
     }
 
+    /**
+     * 获取json文件中存储的用户密码
+     *
+     * @return 返回String类型用户密码
+     */
     public String getUserPwdJson() {
         return userPwdJson;
     }

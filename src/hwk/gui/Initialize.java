@@ -22,6 +22,9 @@ public class Initialize {
     private JLabel textTip;
     private JLabel textSample;
 
+    /**
+     * Initialize 监听事件
+     */
     public Initialize() {
         saveButton.addActionListener(e -> {
             if (saveProductData(initTextField.getText()) == 1) {
@@ -51,6 +54,9 @@ public class Initialize {
         goBackButton.setText("返回");
     }
 
+    /**
+     * Initialize 入口
+     */
     public void initializeRun() {
         frame = new JFrame("Initialize");
         frame.setContentPane(this.root);

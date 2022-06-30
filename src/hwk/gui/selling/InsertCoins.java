@@ -22,6 +22,9 @@ public class InsertCoins {
     private JPanel showPanel;
     private float accountsPayable;
 
+    /**
+     * InsertCoins 监听事件
+     */
     public InsertCoins() {
         buyButton.addActionListener(e -> onBuyButton());
         cancelButton.addActionListener(e -> {
@@ -30,6 +33,9 @@ public class InsertCoins {
         });
     }
 
+    /**
+     * 点击BuyButton按钮时运行此段代码
+     */
     private void onBuyButton() {
         frame.dispose();
         float userPayMoney = Float.parseFloat(userPayMoneyField.getText());
@@ -43,12 +49,20 @@ public class InsertCoins {
         new Sell().sellRun();
     }
 
+    /**
+     * 设置窗口文字
+     */
     private void setWindowText() {
         payMoney.setText("请付款" + accountsPayable + "元");
         buyButton.setText("购买");
         cancelButton.setText("取消");
     }
 
+    /**
+     * InsertCoins 入口
+     *
+     * @param accountsPayable 用户应付钱款
+     */
     public void insertCoinsRun(float accountsPayable) {
         this.accountsPayable = accountsPayable;
         frame = new JFrame("InsertCoinsTemp");
