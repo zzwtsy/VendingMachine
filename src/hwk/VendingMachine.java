@@ -8,6 +8,8 @@ import hwk.utils.CheckRegistered;
 import javax.swing.*;
 import java.io.File;
 
+import static hwk.utils.CheckOS.checkOS;
+
 /**
  * @author zzwtsy
  */
@@ -16,8 +18,11 @@ public class VendingMachine {
     static String userPwdJson;
 
     public static void main(String[] args) {
-        //MacOS窗口标题栏自动更改颜色
-        System.setProperty("apple.awt.application.appearance", "system");
+        System.out.println(System.getProperty("os.name"));
+        if (checkOS().contains("MacOS")) {
+            //MacOS窗口标题栏自动更改颜色
+            System.setProperty("apple.awt.application.appearance", "system");
+        }
         //引入FlatDarculaLaf主题
         try {
             UIManager.setLookAndFeel(new FlatDarculaLaf());
