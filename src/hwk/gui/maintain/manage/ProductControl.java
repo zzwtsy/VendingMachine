@@ -37,6 +37,7 @@ public class ProductControl {
         okButton.addActionListener(e -> {
             String productSerial = getChoiceSerialField.getText();
             new ModifyProductInfo().modifyProductInfoRun(productSerial);
+            frame.dispose();
         });
         goBackButton.addActionListener(e -> {
             frame.dispose();

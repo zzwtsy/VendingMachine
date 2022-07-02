@@ -38,9 +38,11 @@ public class ModifyProductInfo {
                 modifyInfo(productSerial, productName, productPrice, productNumbers);
                 JOptionPane.showMessageDialog(null, "修改成功");
                 frame.dispose();
+                new ProductControl().productControlRun();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "修改失败");
                 frame.dispose();
+                new ProductControl().productControlRun();
             }
         });
         cancelButton.addActionListener(e -> frame.dispose());
