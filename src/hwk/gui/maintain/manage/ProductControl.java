@@ -16,6 +16,7 @@ import static hwk.utils.WindowCenter.initFrame;
  * @author meng
  */
 public class ProductControl {
+    String[][] data;
     private JFrame frame;
     private JPanel root;
     @SuppressWarnings("all")
@@ -35,9 +36,13 @@ public class ProductControl {
      */
     public ProductControl() {
         okButton.addActionListener(e -> {
-            String productSerial = getChoiceSerialField.getText();
-            new ModifyProductInfo().modifyProductInfoRun(productSerial);
-            frame.dispose();
+            int productSerial = Integer.parseInt(getChoiceSerialField.getText()) -1;
+            if (productSerial + 1 <= 0 | productSerial + 1 > data.length) {
+                JOptionPane.showMessageDialog(null, "暂无此商品序号");
+            }else {
+                new ModifyProductInfo().modifyProductInfoRun(productSerial);
+                frame.dispose();
+            }
         });
         goBackButton.addActionListener(e -> {
             frame.dispose();
@@ -65,7 +70,7 @@ public class ProductControl {
         String[] name = {"序号", "名称", "价格/元", "数量/瓶"};
         GetProductInfo getProductInfo = new GetProductInfo();
         //通过GetProductInfo方法获取产品信息存入到data中
-        String[][] data = getProductInfo.getProductInfoData(getProductInfo.getProductInfoJson());
+        data = getProductInfo.getProductInfoData(getProductInfo.getProductInfoJson());
         contentTable.setModel(new DefaultTableModel(data, name));
         frame.addWindowListener(new WindowAdapter() {
             @Override

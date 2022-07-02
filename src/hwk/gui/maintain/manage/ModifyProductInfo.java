@@ -45,7 +45,10 @@ public class ModifyProductInfo {
                 new ProductControl().productControlRun();
             }
         });
-        cancelButton.addActionListener(e -> frame.dispose());
+        cancelButton.addActionListener(e -> {
+            frame.dispose();
+            new ProductControl().productControlRun();
+        });
     }
 
     /**
@@ -68,8 +71,8 @@ public class ModifyProductInfo {
      *
      * @param productSerial 商品序号
      */
-    public void modifyProductInfoRun(String productSerial) {
-        this.productSerial = Integer.parseInt(productSerial) - 1;
+    public void modifyProductInfoRun(int productSerial) {
+        this.productSerial = productSerial;
         frame = new JFrame("ModifyProductInfo");
         frame.setContentPane(this.root);
         //设置图标
