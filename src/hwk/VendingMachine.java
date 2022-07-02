@@ -19,7 +19,7 @@ public class VendingMachine {
 
     public static void main(String[] args) {
         System.out.println(System.getProperty("os.name"));
-        if (checkOS().contains("MacOS")) {
+        if (checkOS().contains("Mac")) {
             //MacOS窗口标题栏自动更改颜色
             System.setProperty("apple.awt.application.appearance", "system");
         }
