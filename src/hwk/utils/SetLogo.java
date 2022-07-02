@@ -2,7 +2,9 @@ package hwk.utils;
 
 import javax.swing.*;
 import java.util.Objects;
-
+/**
+ * @author zzwtsy
+ */
 public class SetLogo {
     /**
      * 设置程序Logo

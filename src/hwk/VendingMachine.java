@@ -17,6 +17,9 @@ public class VendingMachine {
     static String userNameJson;
     static String userPwdJson;
 
+    /**
+     * 程序入口
+     */
     public static void main(String[] args) {
         if (checkOS().contains("Mac")) {
             //MacOS窗口标题栏自动更改颜色

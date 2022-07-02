@@ -1,5 +1,8 @@
 package hwk.utils;
 
+/**
+ * author: zzwtsy
+ */
 public class CheckOS {
     /**
      * 检测操作系统

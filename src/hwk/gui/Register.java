@@ -11,7 +11,7 @@ import java.io.File;
 import static hwk.utils.WindowCenter.initFrame;
 
 /**
- * @author meng
+ * @author zzwtsy
  */
 public class Register {
     private final JFrame frame = new JFrame("register");
@@ -65,6 +65,8 @@ public class Register {
 
     /**
      * 跳转登录窗口
+     * @param userNameJson 用户名
+     * @param userPwdJson 用户密码
      */
     public void toLoginFrame(String userNameJson, String userPwdJson) {
         //关闭注册窗口
