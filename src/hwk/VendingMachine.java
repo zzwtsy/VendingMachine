@@ -22,7 +22,7 @@ public class VendingMachine {
      */
     public static void main(String[] args) {
         if (checkOS().contains("Mac")) {
-            //MacOS窗口标题栏自动更改颜色
+            //MacOS窗口标题栏根据系统主题自动更改颜色
             System.setProperty("apple.awt.application.appearance", "system");
         }
         //引入FlatDarculaLaf主题
