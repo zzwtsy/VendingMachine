@@ -33,7 +33,7 @@ public class ModifyUserInfo {
         okButton.addActionListener(e -> {
             CheckRegistered checkRegistered = new CheckRegistered();
             checkRegistered.checkRegistered();
-            String userName = checkRegistered.getUserNameJson();
+            String userName = checkRegistered.getUserName();
             String userPwd1 = String.valueOf(userPwdField1.getPassword());
             String userPwd2 = String.valueOf(userPwdField2.getPassword());
             if (userPwd1.equals(userPwd2)) {

@@ -16,7 +16,7 @@ public class CheckRegistered {
      *
      * @return 返回用String类型户名
      */
-    public String getUserNameJson() {
+    public String getUserName() {
         return userNameJson;
     }
 
@@ -25,7 +25,7 @@ public class CheckRegistered {
      *
      * @return 返回String类型用户密码
      */
-    public String getUserPwdJson() {
+    public String getUserPwd() {
         return userPwdJson;
     }
 

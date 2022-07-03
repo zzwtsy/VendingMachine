@@ -38,8 +38,8 @@ public class VendingMachine {
         if (jsonFile.exists()) {
             //判断管理员是否注册
             if (checkRegistered.checkRegistered()) {
-                userNameJson = checkRegistered.getUserNameJson();
-                userPwdJson = checkRegistered.getUserPwdJson();
+                userNameJson = checkRegistered.getUserName();
+                userPwdJson = checkRegistered.getUserPwd();
                 new Login().loginRun(userNameJson, userPwdJson);
             } else {
                 register.registerRun();
