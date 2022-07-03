@@ -3,6 +3,7 @@ package hwk.utils;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.util.Objects;
 
 /**
  * @author meng
@@ -39,6 +40,6 @@ public class CheckRegistered {
         JSONObject contentJson = (JSONObject) MyJson.readJson(file);
         userNameJson = (String) contentJson.get("userName");
         userPwdJson = (String) contentJson.get("userPwd");
-        return userNameJson != null && userPwdJson != null;
+        return !Objects.equals(userNameJson, "") || !Objects.equals(userPwdJson, "");
     }
 }
