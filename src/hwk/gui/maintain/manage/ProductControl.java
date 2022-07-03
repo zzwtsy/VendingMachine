@@ -36,10 +36,10 @@ public class ProductControl {
      */
     public ProductControl() {
         okButton.addActionListener(e -> {
-            int productSerial = Integer.parseInt(getChoiceSerialField.getText()) -1;
+            int productSerial = Integer.parseInt(getChoiceSerialField.getText()) - 1;
             if (productSerial + 1 <= 0 | productSerial + 1 > data.length) {
                 JOptionPane.showMessageDialog(null, "暂无此商品序号");
-            }else {
+            } else {
                 new ModifyProductInfo().modifyProductInfoRun(productSerial);
                 frame.dispose();
             }
