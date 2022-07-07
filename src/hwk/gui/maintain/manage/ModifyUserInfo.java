@@ -41,7 +41,7 @@ public class ModifyUserInfo {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("userName", userName);
                 //对用户密码进行BCrypt加密
-                jsonObject.put("userPwd", BCrypt.hashpw(userPwd1,BCrypt.gensalt()));
+                jsonObject.put("userPwd", BCrypt.hashpw(userPwd1, BCrypt.gensalt()));
                 File jsonFile = new File("config.json");
                 try {
                     MyJson.writeJson(jsonObject, jsonFile);
