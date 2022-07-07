@@ -14,13 +14,13 @@ import static hwk.utils.CheckOS.checkOS;
  * @author zzwtsy
  */
 public class VendingMachine {
-    static String userNameJson;
-    static String userPwdJson;
 
     /**
      * 程序入口
      */
     public static void main(String[] args) {
+        String userNameJson;
+        String userPwdJson;
         if (checkOS().contains("Mac")) {
             //MacOS窗口标题栏根据系统主题自动更改颜色
             System.setProperty("apple.awt.application.appearance", "system");
