@@ -2,6 +2,7 @@ package hwk.gui.login;
 
 import hwk.gui.Menu;
 import hwk.utils.SetLogo;
+import org.mindrot.jbcrypt.BCrypt;
 
 import javax.swing.*;
 
@@ -37,7 +38,7 @@ public class Login {
                 //判断用户点击登录时密码是否为空，trim：删除前导和尾随空格
             } else if ("".equals(loginUserPwd.trim())) {
                 JOptionPane.showMessageDialog(null, "用户密码不能为空");
-            } else if (!userPwd.equals(loginUserPwd)) {
+            } else if (!BCrypt.checkpw(loginUserPwd, userPwd)) {
                 JOptionPane.showMessageDialog(null, "用户密码错误");
             } else {
                 frame.dispose();

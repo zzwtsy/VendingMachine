@@ -37,7 +37,7 @@ public class VendingMachine {
         //检查config.json文件是否存在
         if (jsonFile.exists()) {
             //判断管理员是否注册
-            if (!checkRegistered.checkRegistered()) {
+            if (checkRegistered.checkRegistered()) {
                 userNameJson = checkRegistered.getUserName();
                 userPwdJson = checkRegistered.getUserPwd();
                 new Login().loginRun(userNameJson, userPwdJson);

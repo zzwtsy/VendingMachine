@@ -4,6 +4,7 @@ import hwk.gui.login.Login;
 import hwk.utils.MyJson;
 import hwk.utils.SetLogo;
 import org.json.JSONObject;
+import org.mindrot.jbcrypt.BCrypt;
 
 import javax.swing.*;
 import java.io.File;
@@ -51,7 +52,8 @@ public class Register {
             } else {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("userName", registerUserName);
-                jsonObject.put("userPwd", registerUserPwd1);
+                //对用户密码进行BCrypt加密
+                jsonObject.put("userPwd", BCrypt.hashpw(registerUserPwd1,BCrypt.gensalt()));
                 File jsonFile = new File("config.json");
                 try {
                     MyJson.writeJson(jsonObject, jsonFile);

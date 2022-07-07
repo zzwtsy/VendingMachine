@@ -3,6 +3,7 @@ package hwk.gui.login;
 import hwk.gui.Menu;
 import hwk.gui.selling.Sell;
 import hwk.utils.SetLogo;
+import org.mindrot.jbcrypt.BCrypt;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
@@ -33,7 +34,7 @@ public class SellLogin {
             String loginUserName = userNameField.getText();
             String loginUserPwd = String.valueOf(userPwdField.getPassword());
             //判断用户点击登录时用户名是否为空，trim：删除前导和尾随空格
-            if ("".equals(loginUserName.trim()) | !userName.equals(loginUserName) | "".equals(loginUserPwd.trim()) | !userPwd.equals(loginUserPwd)) {
+            if ("".equals(loginUserName.trim()) | !userName.equals(loginUserName) | "".equals(loginUserPwd.trim()) | !BCrypt.checkpw(loginUserPwd, userPwd)) {
                 JOptionPane.showMessageDialog(null, "登录错误");
                 frame.dispose();
                 new Sell().sellRun();

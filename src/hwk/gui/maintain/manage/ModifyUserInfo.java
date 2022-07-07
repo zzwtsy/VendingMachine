@@ -5,6 +5,7 @@ import hwk.utils.CheckRegistered;
 import hwk.utils.MyJson;
 import hwk.utils.SetLogo;
 import org.json.JSONObject;
+import org.mindrot.jbcrypt.BCrypt;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
@@ -39,7 +40,8 @@ public class ModifyUserInfo {
             if (userPwd1.equals(userPwd2)) {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("userName", userName);
-                jsonObject.put("userPwd", userPwd1);
+                //对用户密码进行BCrypt加密
+                jsonObject.put("userPwd", BCrypt.hashpw(userPwd1,BCrypt.gensalt()));
                 File jsonFile = new File("config.json");
                 try {
                     MyJson.writeJson(jsonObject, jsonFile);
