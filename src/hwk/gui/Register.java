@@ -53,11 +53,12 @@ public class Register {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("userName", registerUserName);
                 //对用户密码进行BCrypt加密
-                jsonObject.put("userPwd", BCrypt.hashpw(registerUserPwd1,BCrypt.gensalt()));
+                String bCryptPwd = BCrypt.hashpw(registerUserPwd1, BCrypt.gensalt());
+                jsonObject.put("userPwd", bCryptPwd);
                 File jsonFile = new File("config.json");
                 try {
                     MyJson.writeJson(jsonObject, jsonFile);
-                    toLoginFrame(registerUserName, registerUserPwd1);
+                    toLoginFrame(registerUserName, bCryptPwd);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
