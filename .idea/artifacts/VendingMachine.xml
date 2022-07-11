@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jpackage" name="VendingMachine">
+    <output-path>$PROJECT_DIR$/out/artifacts/VendingMachine</output-path>
+    <root id="root">
+      <element id="archive" name="VendingMachine.jar">
+        <element id="module-output" name="VendingMachine" />
+        <element id="extracted-dir" path="$PROJECT_DIR$/lib/flatlaf-1.1.2.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$PROJECT_DIR$/lib/jbcrypt-0.4.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$PROJECT_DIR$/lib/json-20220320.jar" path-in-jar="/" />
+      </element>
+    </root>
+  </artifact>
+</component>
