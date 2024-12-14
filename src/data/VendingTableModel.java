@@ -10,7 +10,7 @@ import java.util.Vector;
  */
 public class VendingTableModel extends AbstractTableModel {
     protected final Vector<String> tableTitle;
-    protected final Vector<Product> tableData;
+    protected final Vector<Product> tableData = Const.config.productListToVector();
 
     public VendingTableModel() {
         this.tableTitle = new Vector<>();
@@ -18,7 +18,6 @@ public class VendingTableModel extends AbstractTableModel {
         tableTitle.add("商品名称");
         tableTitle.add("商品价格");
         tableTitle.add("商品数量");
-        this.tableData = Const.config.productListToVector();
     }
 
     @Override

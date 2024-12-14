@@ -82,7 +82,7 @@ public class Vending extends JFrame {
         // 保存配置
         Config.save();
         // 更新表格数据
-        updateVendingTableData();
+        vendingTable.updateUI();
     }
 
     /**
@@ -108,19 +108,12 @@ public class Vending extends JFrame {
         return listSelectionModel;
     }
 
-    /**
-     * 更新商品表格数据
-     */
-    public void updateVendingTableData() {
-        vendingTable.setModel(new VendingTableModel());
-    }
-
     public static void showVendingWindow() {
         Vending vending = new Vending();
         vending.pack();
         vending.setVisible(true);
         vending.setSize(600, 400);
-        vending.updateVendingTableData();
+        vending.vendingTable.setModel(new VendingTableModel());
     }
 
 }
