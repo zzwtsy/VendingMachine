@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Stream;
 
 /**
  * 维护销售产品表格数据
@@ -36,13 +35,14 @@ public class ProductMaintenanceTableModel extends VendingTableModel {
         for (String productCode : productCodeList) {
             // 获取产品
             Product product = iterator.next();
-            // 如果产品代码匹配
-            if (product.getProductCode().equals(productCode)) {
-                // 从产品列表中移除产品
-                iterator.remove();
-                // 从表格数据中移除产品
-                tableData.remove(product);
+            // 如果产品代码不匹配跳过
+            if (!product.getProductCode().equals(productCode)) {
+                continue;
             }
+            // 从产品列表中移除产品
+            iterator.remove();
+            // 从表格数据中移除产品
+            tableData.remove(product);
         }
 
         // 更新产品列表
