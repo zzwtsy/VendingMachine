@@ -8,6 +8,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.ZonedDateTime;
 
 public class Setting extends JFrame {
@@ -29,6 +31,8 @@ public class Setting extends JFrame {
     private JButton prevButton;
     private JButton nextButton;
     private JComboBox<Integer> pageSizeComboBox;
+    private JPanel generalSettingPanel;
+    private JButton startSaleButton;
 
     public Setting() {
         setTitle("设置");
@@ -111,6 +115,13 @@ public class Setting extends JFrame {
         // 设置表格可编辑
         DefaultCellEditor defaultCellEditor = new DefaultCellEditor(new JTextField());
         maintainTable.setCellEditor(defaultCellEditor);
+        startSaleButton.addActionListener(e -> {
+            Vending.showVendingWindow();
+            // 记录日志
+            Log log = new Log("开始销售", ZonedDateTime.now().toString(), Const.config.getUserName(), "");
+            Log.save(log);
+            dispose();
+        });
     }
 
     /**
@@ -128,6 +139,9 @@ public class Setting extends JFrame {
 
     }
 
+    /**
+     * 删除商品
+     */
     public void onDeleteButton() {
         // 获取选中的行
         int[] selectedRows = maintainTable.getSelectedRows();
