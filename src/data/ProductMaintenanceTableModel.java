@@ -80,4 +80,24 @@ public class ProductMaintenanceTableModel extends VendingTableModel {
         tableData.add(product);
     }
 
+    @Override
+    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+        // 向 tableData 中设置值
+        Product product = tableData.get(rowIndex);
+        switch (columnIndex) {
+            case 2 -> {
+                Log log = new Log("维护价格", ZonedDateTime.now().toString(), Const.config.getUserName(), "原价：" + product.getPrice() + "，新价：" + aValue);
+                Log.save(log);
+                product.setPrice(Double.parseDouble((String) aValue));
+            }
+            case 3 -> {
+                Log log = new Log("维护库存", ZonedDateTime.now().toString(), Const.config.getUserName(), "原库存：" + product.getQuantity() + "，新库存：" + aValue);
+                Log.save(log);
+                product.setQuantity(Integer.parseInt((String) aValue));
+            }
+        }
+        // 保存配置
+        Const.config.setProductList(new ArrayList<>(tableData));
+        Config.save();
+    }
 }

@@ -108,6 +108,9 @@ public class Setting extends JFrame {
             // 更新销售日志UI
             updateSalesLogUI();
         });
+        // 设置表格可编辑
+        DefaultCellEditor defaultCellEditor = new DefaultCellEditor(new JTextField());
+        maintainTable.setCellEditor(defaultCellEditor);
     }
 
     /**
