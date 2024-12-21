@@ -1,6 +1,7 @@
 package ui;
 
 import data.Config;
+import data.Log;
 import data.VendingTableModel;
 import util.Const;
 
@@ -8,6 +9,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import java.awt.event.ActionEvent;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 
 public class Vending extends JFrame {
@@ -61,6 +63,9 @@ public class Vending extends JFrame {
             // 获取商品名称
             String goodName = (String) vendingTable.getValueAt(selectedRow, 1);
             JOptionPane.showMessageDialog(contentPanel, goodName + "已售罄", "提示", JOptionPane.WARNING_MESSAGE);
+            // 记录日志
+            Log log = new Log("购买", ZonedDateTime.now().toString(), "客户", "商品已售罄" + goodName);
+            Log.save(log);
             return;
         }
         // 获取选中的商品编号
@@ -71,10 +76,20 @@ public class Vending extends JFrame {
             if (Objects.equals(product.getProductCode(), goodId)) {
                 // 如果购买数量大于商品数量，则不能购买
                 if (count > product.getQuantity()) {
+                    Log log = new Log(
+                            "购买",
+                            ZonedDateTime.now().toString(),
+                            "客户",
+                            "商品数量不足：当前数量" + product.getQuantity() + "客户所需数量：" + count
+                    );
+                    Log.save(log);
                     JOptionPane.showMessageDialog(contentPanel, "商品数量不足", "提示", JOptionPane.WARNING_MESSAGE);
                 } else {
                     // 购买商品
                     product.setQuantity(product.getQuantity() - count);
+                    // 记录日志
+                    Log log = new Log("购买", ZonedDateTime.now().toString(), "客户", "购买" + product.getProductName() + "数量：" + count);
+                    Log.save(log);
                     JOptionPane.showMessageDialog(contentPanel, "购买成功", "提示", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
