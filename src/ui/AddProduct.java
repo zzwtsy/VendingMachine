@@ -5,9 +5,9 @@ import data.Product;
 import util.Const;
 
 import javax.swing.*;
-import java.awt.event.*;
-import java.util.List;
-import java.util.Optional;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.function.Consumer;
 
 public class AddProduct extends JDialog {

@@ -6,7 +6,6 @@ import javax.swing.table.AbstractTableModel;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Formatter;
 import java.util.Vector;
 
 public class SalesLogTableModel extends AbstractTableModel {

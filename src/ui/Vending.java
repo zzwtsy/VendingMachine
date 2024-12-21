@@ -64,7 +64,7 @@ public class Vending extends JFrame {
             String goodName = (String) vendingTable.getValueAt(selectedRow, 1);
             JOptionPane.showMessageDialog(contentPanel, goodName + "已售罄", "提示", JOptionPane.WARNING_MESSAGE);
             // 记录日志
-            Log log = new Log("购买", ZonedDateTime.now().toString(), "客户", "商品已售罄" + goodName);
+            Log log = new Log("购买", ZonedDateTime.now().toString(), "客户", "商品【" + goodName + "】已售罄");
             Log.save(log);
             return;
         }
@@ -80,7 +80,7 @@ public class Vending extends JFrame {
                             "购买",
                             ZonedDateTime.now().toString(),
                             "客户",
-                            "商品数量不足：当前数量" + product.getQuantity() + "客户所需数量：" + count
+                            "商品数量不足：当前数量" + product.getQuantity() + " 客户所需数量：" + count
                     );
                     Log.save(log);
                     JOptionPane.showMessageDialog(contentPanel, "商品数量不足", "提示", JOptionPane.WARNING_MESSAGE);
@@ -88,7 +88,7 @@ public class Vending extends JFrame {
                     // 购买商品
                     product.setQuantity(product.getQuantity() - count);
                     // 记录日志
-                    Log log = new Log("购买", ZonedDateTime.now().toString(), "客户", "购买" + product.getProductName() + "数量：" + count);
+                    Log log = new Log("购买", ZonedDateTime.now().toString(), "客户", "购买商品【" + product.getProductName() + "】数量：" + count);
                     Log.save(log);
                     JOptionPane.showMessageDialog(contentPanel, "购买成功", "提示", JOptionPane.INFORMATION_MESSAGE);
                 }

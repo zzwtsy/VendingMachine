@@ -4,10 +4,9 @@ import util.Const;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.beans.Customizer;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Login extends JDialog {
     private JPanel contentPane;

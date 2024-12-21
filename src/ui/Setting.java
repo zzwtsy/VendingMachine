@@ -8,10 +8,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.time.ZonedDateTime;
-import java.util.List;
 
 public class Setting extends JFrame {
     private final SalesLogTableModel salesLogTableModel;
