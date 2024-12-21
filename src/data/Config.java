@@ -1,6 +1,7 @@
 package data;
 
 import util.Const;
+import util.FileUtil;
 import util.JsonUtil;
 
 import java.io.*;
@@ -57,20 +58,13 @@ public class Config {
         if (!FILE.exists()) {
             // 不存在则创建
             Config config = new Config();
+            // 设置默认用户名和密码
             config.setUserName("admin").setPassword("admin").setProductList(new Vector<>());
             Const.config = config;
             save();
         } else {
-            try (FileInputStream fis = new FileInputStream(FILE)) {
-                InputStreamReader isr = new InputStreamReader(fis);
-                BufferedReader br = new BufferedReader(isr);
-                StringBuilder sb = new StringBuilder();
-                String line;
-                while ((line = br.readLine()) != null) {
-                    sb.append(line);
-                    sb.append(System.lineSeparator());
-                }
-                String content = sb.toString();
+            try {
+                String content = FileUtil.readFile(CONFIG_PATH);
                 Const.config = JsonUtil.decodeFromString(content, Config.class);
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -84,10 +78,9 @@ public class Config {
     public static void save() {
         String json = JsonUtil.encodeToString(Const.config);
         // 保存 json 文件
-        try (FileOutputStream fos = new FileOutputStream(FILE)) {
-            fos.write(json.getBytes());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        boolean success = FileUtil.saveFile(CONFIG_PATH, json);
+        if (!success) {
+            throw new RuntimeException("保存配置失败");
         }
     }
 

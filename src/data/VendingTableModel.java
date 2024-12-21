@@ -47,5 +47,4 @@ public class VendingTableModel extends AbstractTableModel {
     public String getColumnName(int column) {
         return tableTitle.get(column);
     }
-
 }
