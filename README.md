@@ -26,6 +26,7 @@ sequenceDiagram
 ## 项目结构
 ```text
 VendingMachine
+└── lib # 依赖库
 └── src
 ├── data
 │ ├── Config.java # 配置文件相关类
