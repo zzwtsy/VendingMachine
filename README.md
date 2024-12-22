@@ -1,5 +1,6 @@
 ## 注意事项
-- 本项目为 Swing 使用 IDEA Swing UI Designer 开发，请使用 IDEA 开发本项目。
+- 使用 IDEA Swing UI Designer 开发，请使用 IDEA 开发本项目。
+- IDEA 记得安装 Swing UI Designer 插件
 
 ## 流程图
 
